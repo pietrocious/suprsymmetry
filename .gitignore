@@ -1,7 +1,10 @@
-.terraform/
+# terraform
+**/.terraform/
+**/.terraform.lock.hcl
 *.tfstate
 *.tfstate.*
-*.tfstate.backup
-.terraform.lock.hcl
 *.tfvars
+*.tfplan
+
+# keys
 *.pem
