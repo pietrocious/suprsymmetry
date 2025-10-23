@@ -1,46 +1,42 @@
-# production AWS infrastructure
+# production aws infrastructure
 
-production-grade AWS infrastructure with auto-scaling, automated monitoring, and infrastructure-as-code using Terraform.
+production-grade aws infrastructure with auto-scaling, automated monitoring, and infrastructure-as-code using terraform.
 
 posting updates & soon video walk-through :)
 
 ## capabilities
 
-**week 1: vpc networking & CI/CD** 
+**week 1: vpc networking & ci/cd**
+* custom vpc with public/private subnets across multiple availability zones
+* reusable terraform modules for infrastructure components
+* github actions ci/cd pipeline for automated validation on every commit
+* secure aws credential management via github secrets
 
-- custom vpc with public/private subnets across multiple availability zones
-- reusable terraform modules for infrastructure components
-- github actions ci/cd pipeline for automated validation on every commit
-- secure aws credential management via github secrets
-
-**week 2: Auto-Scaling Infrastructure** *(Current)*
-
-- application load balancer distributing traffic across multiple availability zones
-- auto scaling groups with cpu-based scaling policies (scales 2-4 instances)
-- cloudwatch monitoring with sns alerts on high/low cpu and unhealthy targets
-- automated failover and self-healing infrastructure
+**week 2: auto-scaling infrastructure** *(current)*
+* application load balancer distributing traffic across multiple availability zones
+* auto scaling groups with cpu-based scaling policies (scales 2-4 instances)
+* cloudwatch monitoring with sns alerts on high/low cpu and unhealthy targets
+* automated failover and self-healing infrastructure
 
 ## tech stack
 
-- **infrastructure:** AWS (vpc, ec2, alb, asg, cloudwatch, sns)
-- **IaC:** Terraform with reusable modules
-- **CI/CD:** GitHub Actions for automated validation
-- **monitoring:** CloudWatch metrics and alarms
+* **infrastructure:** aws (vpc, ec2, alb, asg, cloudwatch, sns)
+* **iac:** terraform with reusable modules
+* **ci/cd:** github actions for automated validation
+* **monitoring:** cloudwatch metrics and alarms
 
 ## architecture info
 
-multi-AZ VPC with public/private subnets, internet gateway, and route tables. ALB in public subnets distributes traffic to Auto Scaling Group instances that automatically scale based on CPU utilization.
+multi-az vpc with public/private subnets, internet gateway, and route tables. alb in public subnets distributes traffic to asg instances that automatically scale based on cpu utilization.
 
-## monitoring (in progress)
+## monitoring *(in progress)*
 
-CloudWatch alarms configured for:
-
-- high CPU (>15%) → triggers scale-up
-- low CPU (<30%) → triggers scale-down
-- unhealthy targets → immediate sns notification
+cloudwatch alarms configured for:
+* high cpu (>15%) → triggers scale-up
+* low cpu (<30%) → triggers scale-down
+* unhealthy targets → immediate sns notification
 
 ## project structure
-
 ```
 suprsymmetry/
 ├── .github/
@@ -58,14 +54,13 @@ suprsymmetry/
 ├── archive/                   # early experiments and learning iterations
 │   └── week1-experiments/
 └── README.md
-
 ```
 
-## TODO
+## todo
 
-- [x]  Week 1: VPC networking and CI/CD foundation
-- [x]  Week 2: Auto-scaling infrastructure with monitoring
-- [ ]  Week 3: Static website deployment (S3, CloudFront, Route53)
-- [ ]  Week 4: Container orchestration with EKS
-- [ ]  Week 5: Remote state management and multi-environment
-- [ ]  Week 6: Security hardening and compliance
+* [x] week 1: vpc networking and ci/cd foundation
+* [x] week 2: auto-scaling infrastructure with monitoring
+* [ ] week 3: static website deployment (s3, cloudfront, route53)
+* [ ] week 4: container orchestration with eks
+* [ ] week 5: remote state management and multi-environment
+* [ ] week 6: security hardening and compliance
