@@ -65,6 +65,14 @@ resource "aws_security_group" "instances" {
     security_groups = [aws_security_group.alb.id]
   }
 
+ingress {
+    description = "SSH from main instance"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["172.31.0.0/16"]  # Your VPC CIDR (allows SSH from any instance in VPC)
+  }
+
   egress {
     description = "Allow all outbound"
     from_port   = 0
@@ -146,18 +154,22 @@ resource "aws_launch_template" "app" {
   name_prefix   = "production-"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = "t2.micro"
+  key_name      = "terraform" 
 
   vpc_security_group_ids = [aws_security_group.instances.id]
 
-  user_data = base64encode(<<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl start httpd
-              systemctl enable httpd
-              echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
-              EOF
-  )
+user_data = base64encode(<<-EOF
+  #!/bin/bash
+  yum update -y
+  yum install -y httpd stress
+  systemctl start httpd
+  systemctl enable httpd
+  echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
+  
+  sleep 60
+  stress --cpu 4 --vm 2 --vm-bytes 128M --timeout 600 &
+  EOF
+)
 
   tag_specifications {
     resource_type = "instance"
