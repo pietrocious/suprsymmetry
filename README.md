@@ -1,3 +1,4 @@
+
 # production aws infrastructure
 
 production-grade aws infrastructure with auto-scaling, automated monitoring, and infrastructure-as-code using terraform.
@@ -12,11 +13,17 @@ posting updates & soon video walk-through :)
 * github actions ci/cd pipeline for automated validation on every commit
 * secure aws credential management via github secrets
 
-**week 2: auto-scaling infrastructure** *(current)*
+**week 2: auto-scaling infrastructure**
 * application load balancer distributing traffic across multiple availability zones
 * auto scaling groups with cpu-based scaling policies (scales 2-4 instances)
 * cloudwatch monitoring with sns alerts on high/low cpu and unhealthy targets
 * automated failover and self-healing infrastructure
+
+**week 3: static website deployment** *(current)*
+- s3 bucket with cloudfront cdn for global content delivery
+- route53 dns management with custom domain (suprsymmetry.com)
+- ssl/tls certificates for https
+- oac restricting s3 access
 
 ## tech stack
 
@@ -60,7 +67,7 @@ suprsymmetry/
 
 * [x] week 1: vpc networking and ci/cd foundation
 * [x] week 2: auto-scaling infrastructure with monitoring
-* [ ] week 3: static website deployment (s3, cloudfront, route53)
+* [X] week 3: static website deployment (s3, cloudfront, route53)
 * [ ] week 4: container orchestration with eks
 * [ ] week 5: remote state management and multi-environment
 * [ ] week 6: security hardening and compliance
