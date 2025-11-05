@@ -1,6 +1,6 @@
 {
-  "CallerReference": "suprsymmetry-2025",
-  "Comment": "suprsymmetry.com static site",
+  "CallerReference": "suprsymmetry-fixed-2025",
+  "Comment": "suprsymmetry.com static site - fixed origin",
   "Enabled": true,
   "Aliases": {
     "Quantity": 2,
@@ -11,11 +11,9 @@
     "Quantity": 1,
     "Items": [{
       "Id": "S3-suprsymmetry",
-      "DomainName": "suprsymmetry.com.s3-website-us-east-1.amazonaws.com",
-      "CustomOriginConfig": {
-        "HTTPPort": 80,
-        "HTTPSPort": 443,
-        "OriginProtocolPolicy": "http-only"
+      "DomainName": "suprsymmetry.com.s3.us-east-1.amazonaws.com",
+      "S3OriginConfig": {
+        "OriginAccessIdentity": ""
       }
     }]
   },
