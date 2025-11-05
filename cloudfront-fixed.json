@@ -1,0 +1,47 @@
+{
+  "CallerReference": "suprsymmetry-fixed-2025",
+  "Comment": "suprsymmetry.com static site - fixed origin",
+  "Enabled": true,
+  "Aliases": {
+    "Quantity": 2,
+    "Items": ["suprsymmetry.com", "www.suprsymmetry.com"]
+  },
+  "DefaultRootObject": "index.html",
+  "Origins": {
+    "Quantity": 1,
+    "Items": [{
+      "Id": "S3-suprsymmetry",
+      "DomainName": "suprsymmetry.com.s3.us-east-1.amazonaws.com",
+      "S3OriginConfig": {
+        "OriginAccessIdentity": ""
+      }
+    }]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "S3-suprsymmetry",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "AllowedMethods": {
+      "Quantity": 2,
+      "Items": ["GET", "HEAD"],
+      "CachedMethods": {
+        "Quantity": 2,
+        "Items": ["GET", "HEAD"]
+      }
+    },
+    "Compress": true,
+    "ForwardedValues": {
+      "QueryString": false,
+      "Cookies": {"Forward": "none"}
+    },
+    "MinTTL": 0,
+    "TrustedSigners": {
+      "Enabled": false,
+      "Quantity": 0
+    }
+  },
+  "ViewerCertificate": {
+    "ACMCertificateArn": "arn:aws:acm:us-east-1:357160414806:certificate/2b70ff3d-0f7f-48ea-820f-d7085c4487a7",
+    "SSLSupportMethod": "sni-only",
+    "MinimumProtocolVersion": "TLSv1.2_2021"
+  }
+}
