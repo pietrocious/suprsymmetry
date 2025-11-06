@@ -1,6 +1,10 @@
 # production aws infrastructure
 
-production-grade cloud infrastructure demonstrating devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
+this is a production-grade cloud infrastructure designed to test devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
+
+in physics, supersymmetry describes universal balance through particle partnerships. in infrastructure, we build that balance through architectural patterns.
+
+like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. built using terraform.
 
 **live demo:** [suprsymmetry.com](https://suprsymmetry.com)
 
