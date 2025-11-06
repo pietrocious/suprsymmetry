@@ -1,73 +1,136 @@
-
 # production aws infrastructure
 
-production-grade aws infrastructure with auto-scaling, automated monitoring, and infrastructure-as-code using terraform.
+production-grade cloud infrastructure demonstrating devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
+
+**live demo:** [suprsymmetry.com](https://suprsymmetry.com)
 
 posting updates & soon video walk-through :)
 
-## capabilities
+---
 
-**week 1: vpc networking & ci/cd**
-* custom vpc with public/private subnets across multiple availability zones
-* reusable terraform modules for infrastructure components
-* github actions ci/cd pipeline for automated validation on every commit
-* secure aws credential management via github secrets
+## overview
 
-**week 2: auto-scaling infrastructure**
-* application load balancer distributing traffic across multiple availability zones
-* auto scaling groups with cpu-based scaling policies (scales 2-4 instances)
-* cloudwatch monitoring with sns alerts on high/low cpu and unhealthy targets
-* automated failover and self-healing infrastructure
+this repository showcases a complete aws infrastructure built with terraform, featuring multi-az networking, auto-scaling compute resources, global content delivery, and comprehensive monitoring. designed to demonstrate practical devops skills applicable to enterprise environments.
 
-**week 3: static website deployment** *(current)*
+## architecture
+
+### composed of:
+
+**networking foundation**
+- custom vpc with public/private subnets across multiple availability zones
+- internet gateway for public internet access
+- route tables and security groups following least-privilege principles
+- designed for high availability and fault tolerance
+
+**auto-scaling compute layer**
+- application load balancer distributing traffic across multiple azs
+- auto scaling groups with cpu-based scaling policies (2-4 instances)
+- health checks and automated failover for self-healing infrastructure
+- cloudwatch monitoring with sns alerts on high/low cpu and unhealthy targets
+
+**static site hosting**
 - s3 bucket with cloudfront cdn for global content delivery
-- route53 dns management with custom domain (suprsymmetry.com)
-- ssl/tls certificates for https
-- oac restricting s3 access
+- route53 dns management with custom domain
+- acm ssl/tls certificates for https encryption
+- origin access control (oac) restricting s3 access to cloudfront only
+- secure architecture preventing direct s3 access while enabling fast global delivery
+
+---
 
 ## tech stack
 
-* **infrastructure:** aws (vpc, ec2, alb, asg, cloudwatch, sns)
-* **iac:** terraform with reusable modules
-* **ci/cd:** github actions for automated validation
-* **monitoring:** cloudwatch metrics and alarms
+**infrastructure**
+- aws: vpc, ec2, alb, asg, s3, cloudfront, route53, acm, cloudwatch, sns
+- terraform: infrastructure as code with reusable modules
+- github actions: automated validation on every commit
 
-## architecture info
+**key devops practices**
+- infrastructure as code (iac) for reproducibility
+- modular design for reusability across environments
+- automated monitoring and alerting
+- security-first architecture (least privilege, encrypted traffic, restricted access)
+- cost optimization (destroy unused resources, leverage free tier)
 
-multi-az vpc with public/private subnets, internet gateway, and route tables. alb in public subnets distributes traffic to asg instances that automatically scale based on cpu utilization.
+---
 
-## monitoring *(in progress)*
+## structure
+```
+infrastructure/
+├── networking/         # vpc foundation and network configuration
+├── compute/            # auto-scaling infrastructure with monitoring
+├── static-site/        # s3 + cloudfront + route53 configuration
+│   └── website/        # static website content
+└── modules/
+    └── vpc/            # reusable vpc terraform module
+
+docs/                   # architecture documentation and reference configs
+archive/                # early experiments and learning iterations
+.github/workflows/      # ci/cd pipeline for terraform validation
+```
+
+---
+
+## deployment
+
+### prerequisites
+- aws cli configured with appropriate credentials
+- terraform >= 1.13.3
+
+### deploy infrastructure
+```bash
+# networking layer
+cd infrastructure/networking
+terraform init
+terraform apply
+
+# compute layer (requires networking)
+cd ../compute
+terraform init
+terraform apply
+
+# static site
+cd ../static-site
+terraform init
+terraform apply
+```
+
+estimated costs when running: ~$30-40/month (primarily alb + cloudfront)
+
+---
+
+## monitoring
 
 cloudwatch alarms configured for:
-* high cpu (>15%) → triggers scale-up
-* low cpu (<30%) → triggers scale-down
-* unhealthy targets → immediate sns notification
+- **high cpu (>15%)** → triggers scale-up to handle increased load
+- **low cpu (<30%)** → triggers scale-down to reduce costs
+- **unhealthy targets** → immediate sns email notification
 
-## project structure
-```
-suprsymmetry/
-├── .github/
-│   └── workflows/
-│       └── terraform.yml      # ci/cd pipeline for automated validation
-├── production-infrastructure/  # week 2: auto-scaling infrastructure
-│   ├── main.tf                # alb, asg, launch template, security groups
-│   ├── monitoring.tf          # cloudwatch alarms, sns topics, scaling policies
-│   └── outputs.tf             # alb dns name and vpc id
-├── vpc-module-project/        # week 1: reusable vpc module
-│   ├── main.tf                # module usage example
-│   ├── outputs.tf             # vpc and subnet outputs
-│   └── modules/
-│       └── vpc/               # reusable vpc module (subnets, igw, route tables)
-├── archive/                   # early experiments and learning iterations
-│   └── week1-experiments/
-└── README.md
-```
+auto-scaling policies automatically adjust capacity based on demand, ensuring application remains responsive while optimizing costs
 
-## todo
+---
 
-* [x] week 1: vpc networking and ci/cd foundation
-* [x] week 2: auto-scaling infrastructure with monitoring
-* [X] week 3: static website deployment (s3, cloudfront, route53)
-* [ ] week 4: container orchestration with eks
-* [ ] week 5: remote state management and multi-environment
-* [ ] week 6: security hardening and compliance
+## security features
+
+- **network isolation:** public/private subnet separation with security groups
+- **encryption in transit:** https enforced via cloudfront with acm certificates
+- **least privilege access:** iam policies and security groups limit access scope
+- **origin access control:** s3 bucket only accessible through cloudfront distribution
+- **automated security updates:** instances configured to pull latest security patches
+
+---
+
+## future enhancements
+
+- container orchestration with eks
+- remote state management with s3 backend and dynamodb locking
+- multi-environment setup (dev/staging/prod)
+- automated testing and deployment pipeline
+- infrastructure cost tracking and optimization dashboards
+- security hardening and compliance automation
+
+---
+
+## contact
+
+
+- linkedin: [in/pietrouni](https://linkedin.com/in/pietrouni)
