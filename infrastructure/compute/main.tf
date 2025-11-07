@@ -13,7 +13,7 @@ provider "aws" {
 
 # Use your VPC module
 module "vpc" {
-  source = "../vpc-module-project/modules/vpc"
+  source = "../modules/vpc"
   
   vpc_cidr               = "10.1.0.0/16"
   environment            = "production"

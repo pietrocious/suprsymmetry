@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  terraform:
-    name: 'Terraform'
+  terraform-compute:
+    name: 'Validate Compute Infrastructure'
     runs-on: ubuntu-latest
     
     permissions:
@@ -17,7 +17,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./vpc-module-project
+        working-directory: ./infrastructure/compute
     
     steps:
       - name: Checkout
