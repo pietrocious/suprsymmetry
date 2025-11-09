@@ -42,10 +42,10 @@ resource "aws_s3_object" "index" {
 
 # ACM certificate (must be created manually first in console)
 # We'll reference the existing one for now
-# data "aws_acm_certificate" "website" {
-# domain   = "suprsymmetry.com"
-# statuses = ["ISSUED"]
-# }
+  data "aws_acm_certificate" "website" {
+  domain   = "suprsymmetry.com"
+  statuses = ["ISSUED"]
+  }
 
 # CloudFront Origin Access Control
 resource "aws_cloudfront_origin_access_control" "website" {
@@ -61,7 +61,7 @@ resource "aws_cloudfront_distribution" "website" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-# aliases             = ["suprsymmetry.com", "www.suprsymmetry.com"]
+  aliases             = ["suprsymmetry.com", "www.suprsymmetry.com"]
 
   origin {
     domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
@@ -89,10 +89,9 @@ resource "aws_cloudfront_distribution" "website" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
-    #  acm_certificate_arn      = data.aws_acm_certificate.website.arn
-    # ssl_support_method       = "sni-only"
-    # minimum_protocol_version = "TLSv1.2_2021"
+    acm_certificate_arn      = data.aws_acm_certificate.website.arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   restrictions {
