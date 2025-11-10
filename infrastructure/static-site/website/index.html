@@ -1,25 +1,423 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>suprsymmetry</title>
-<style>
-body {
-font-family: monospace;
-max-width: 800px;
-margin: 100px auto;
-padding: 20px;
-line-height: 1.6;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pietro Uni Segura - DevOps Engineer</title>
+    <style>
+        @font-face {
+            font-family: 'Copernicus Trial';
+            src: url('/fonts/CopernicusTrial-Heavy.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Copernicus Trial';
+            src: url('/fonts/CopernicusTrial-Extrabold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Test Tiempos Headline';
+            src: url('/fonts/TestTiemposHeadline-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Test Tiempos Headline';
+            src: url('/fonts/TestTiemposHeadline-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Test Tiempos Text';
+            src: url('/fonts/TestTiemposText-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Test Tiempos Text', Georgia, serif;
+            line-height: 1.6;
+            color: #000000;
+            background: #FAF8F5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        header {
+            border-bottom: 3px solid #000000;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Copernicus Trial', serif;
+            font-weight: 900;
+            font-size: 2.5em;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-family: 'Copernicus Trial', serif;
+            font-weight: 800;
+            font-size: 1.2em;
+            color: #4A7C9D;
+            margin-bottom: 15px;
+        }
+        
+        .contact {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+            color: #000000;
+        }
+        
+        .contact a {
+            color: #0563C1;
+            text-decoration: none;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .summary {
+            background: #FAF8F5;
+            padding: 20px;
+            border-left: 4px solid #4A7C9D;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+        
+        h2 {
+            font-family: 'Test Tiempos Headline', Georgia, serif;
+            font-weight: 400;
+            color: #4A7C9D;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #FAF8F5;
+        }
+        
+        h3 {
+            font-family: 'Test Tiempos Headline', Georgia, serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #000000;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .skill-category {
+            background: #FAF8F5;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            font-size: 0.9em;
+        }
+        
+        .skill-category li {
+            padding: 3px 0;
+        }
+        
+        .job {
+            margin-bottom: 30px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-family: 'Test Tiempos Headline', Georgia, serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #000000;
+        }
+        
+        .company {
+            font-family: 'Copernicus Trial', serif;
+            font-weight: 800;
+            color: #000000;
+            font-size: 1.05em;
+        }
+        
+        .date {
+            color: #000000;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        .job ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .job li {
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+        
+        .project {
+            margin-bottom: 25px;
+        }
+        
+        .project-title {
+            font-family: 'Test Tiempos Headline', Georgia, serif;
+            font-weight: 600;
+            font-size: 1.05em;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+        
+        .project-link {
+            color: #0563C1;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        .cert {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .contact {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>suprsymmetry.com</h1>
-<p>infrastructure engineer | under construction</p>
-<p>if you're reading this over https, then everything works :)</p>
-    <footer>
-        <div class="container">
-            <p>built with terraform & aws | <a href="https://github.com/pietrocious/suprsymmetry" target="_blank" rel="noopener">view the code</a></p>
+    <div class="container">
+        <header>
+            <h1>Pietro Uni Segura</h1>
+            <div class="subtitle">DevOps Engineer | CCNA/CCNP Certified</div>
+            <div class="contact">
+                <span>📍 Barcelona</span>
+                <a href="mailto:pietrouni@gmail.com">pietrouni@gmail.com</a>
+                <span>+34 682 635 992</span>
+                <a href="https://github.com/pietrocious" target="_blank">github.com/pietrocious</a>
+                <a href="https://linkedin.com/in/pietrouni" target="_blank">linkedin.com/in/pietrouni</a>
+            </div>
+        </header>
+
+        <div class="summary">
+            Professional with 4+ years of production infrastructure experience building and operating platforms. 
+            Expertise in Terraform, Kubernetes, Docker, and AWS for infrastructure automation and container orchestration. 
+            Deep networking knowledge (CCNA/CCNP certified) provides strong foundation for troubleshooting distributed systems, 
+            designing scalable architectures, and managing high-availability environments. Proven ability to reduce operational 
+            overhead through automation and implement zero-downtime deployments.
         </div>
-    </footer>
+
+        <h2>Technical Skills</h2>
+        <div class="skills">
+            <div class="skill-category">
+                <h3>Networking</h3>
+                <ul>
+                    <li>Enterprise Routing & Switching</li>
+                    <li>OSPF, EIGRP, BGP, STP</li>
+                    <li>Cisco Catalyst, DNA Center</li>
+                    <li>Palo Alto firewalls</li>
+                    <li>CCNA 200-301, ENARSI 300-410</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Cloud & Infrastructure</h3>
+                <ul>
+                    <li>AWS (VPC, EC2, S3, CloudFront, Route53)</li>
+                    <li>Terraform and Ansible</li>
+                    <li>Linux system administration</li>
+                    <li>Kubernetes, Docker</li>
+                    <li>Multi-cloud operations (AWS, Azure)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Monitoring & Automation</h3>
+                <ul>
+                    <li>Grafana, Splunk, Nagios</li>
+                    <li>CloudWatch, Azure Monitor</li>
+                    <li>Python scripting</li>
+                    <li>Network automation</li>
+                    <li>RCA and protocol analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Tecnida</div>
+                    <div class="job-title">Infrastructure Engineer</div>
+                </div>
+                <div class="date">Feb 2025 – Present</div>
+            </div>
+            <ul>
+                <li>Manage and maintain Linux server infrastructure for multiple client environments, ensuring system availability, security patching, and configuration consistency across production systems</li>
+                <li>Configure and troubleshoot Cisco network infrastructure including switches, routers, and security appliances to support client connectivity and operational requirements</li>
+                <li>Implement monitoring solutions and perform proactive health checks to identify and resolve potential issues before impacting production environments</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Giesecke+Devrient</div>
+                    <div class="job-title">Network Operations Engineer</div>
+                </div>
+                <div class="date">Apr 2024 – Feb 2025</div>
+            </div>
+            <ul>
+                <li>Monitor and maintain production payment infrastructure using Azure, Splunk, Nagios, and OP5, ensuring 99.9% uptime for critical financial services</li>
+                <li>Configure and manage Palo Alto firewalls and network security controls, implementing defense-in-depth strategies for PCI-compliant environments</li>
+                <li>Conduct root cause analysis for network outages; document findings and implement preventive automation to reduce MTTD/MTTR by ~30%</li>
+                <li>Coordinate maintenance windows across distributed infrastructure, minimizing service disruption through careful change management and rollback planning</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Cisco</div>
+                    <div class="job-title">Cisco TAC Engineer L2 - DNA Center</div>
+                </div>
+                <div class="date">Aug 2023 – Mar 2024</div>
+            </div>
+            <ul>
+                <li>Deployed and troubleshot Kubernetes-based Cisco DNA Center installations, working with Docker containers, persistent volumes, and cluster networking for large enterprise SDN deployments</li>
+                <li>Led software upgrade procedures for DNA Center clusters, including pre-checks, backup/restore validation, and zero-downtime migration strategies</li>
+                <li>Debugged complex Linux system issues (CentOS-based DNAC appliances), using CLI tools, log analysis, and process management to resolve deployment failures and performance bottlenecks</li>
+                <li>Managed crisis situations during production outages, coordinating with cross-functional teams and customers to restore service while documenting incident timelines for root cause analysis</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Cisco</div>
+                    <div class="job-title">Cisco TAC Engineer L2 - LAN Switching</div>
+                </div>
+                <div class="date">Jun 2020 – Aug 2023</div>
+            </div>
+            <ul>
+                <li>Provided enterprise-level support for Cisco routing & switching infrastructure (Catalyst 2K-9K switches, IE routers), covering network design, advanced troubleshooting, system migrations, and software lifecycle management</li>
+                <li>Conducted root cause analysis for complex network issues involving routing protocols (OSPF, EIGRP, BGP), spanning-tree, VLANs, and layer 2/3 integrations</li>
+                <li>Managed crisis escalations and customer outages with structured problem-solving approach—skills directly applicable to production incident management in DevOps environments</li>
+            </ul>
+        </div>
+
+        <h2>Technical Projects</h2>
+
+        <div class="project">
+            <div class="project-title">Production Cloud Infrastructure Platform</div>
+            <a href="https://github.com/pietrocious/suprsymmetry" class="project-link" target="_blank">github.com/pietrocious/suprsymmetry</a>
+            <ul>
+                <li>Architected and deployed production-grade AWS infrastructure including multi-AZ VPC with public/private subnets, Application Load Balancers, and Auto Scaling Groups; infrastructure scales automatically based on demand with health checks and failover capabilities</li>
+                <li>Developed reusable Terraform modules for VPC networking, compute resources, and static site deployment; modules support centralized state management using S3 and DynamoDB locking</li>
+                <li>Built static website deployment on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Network Automation & Infrastructure</div>
+            <ul>
+                <li>Developed Python scripts to automate Cisco device configuration backups, compliance validation, and bulk configuration changes across 20+ devices; reduced manual errors by 95%</li>
+                <li>Created Ansible playbooks for network device provisioning and configuration management; decreased deployment time by 80% while ensuring consistency</li>
+                <li>Applied networking fundamentals (TCP/IP, routing, security groups, NACLs) to cloud infrastructure design; leveraged deep understanding of network protocols for troubleshooting and optimization</li>
+            </ul>
+        </div>
+
+        <h2>Education</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Associate's degree - Network Infrastructure & Telecommunications</div>
+                    <div style="color: #000000; font-size: 0.9em;">Universidad CENFOTEC</div>
+                </div>
+                <div class="date">Jun 2019 – Dec 2021</div>
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Associate's degree - Cybersecurity</div>
+                    <div style="color: #000000; font-size: 0.9em;">Universidad CENFOTEC</div>
+                </div>
+                <div class="date">Sep 2019 – Aug 2021</div>
+            </div>
+        </div>
+
+        <h2>Certifications</h2>
+        <div class="cert">
+            <span>AXELOS, ITIL® Foundations V4</span>
+            <span class="date">Oct 2023</span>
+        </div>
+        <div class="cert">
+            <span>Cisco, CCNA 200-301</span>
+            <span class="date">Valid until May 2027</span>
+        </div>
+        <div class="cert">
+            <span>Cisco, ENARSI 300-410</span>
+            <span class="date">Valid until May 2027</span>
+        </div>
+
+    </div>
 </body>
 </html>
