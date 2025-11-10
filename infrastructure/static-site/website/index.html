@@ -10,6 +10,7 @@
             src: url('/fonts/CopernicusTrial-Heavy.ttf') format('truetype');
             font-weight: 900;
             font-style: normal;
+            font-display: swap;
         }
         
         @font-face {
@@ -17,6 +18,7 @@
             src: url('/fonts/CopernicusTrial-Extrabold.ttf') format('truetype');
             font-weight: 800;
             font-style: normal;
+            font-display: swap;
         }
         
         @font-face {
@@ -24,6 +26,7 @@
             src: url('/fonts/TestTiemposHeadline-Regular.otf') format('opentype');
             font-weight: 400;
             font-style: normal;
+            font-display: swap;
         }
         
         @font-face {
@@ -31,6 +34,7 @@
             src: url('/fonts/TestTiemposHeadline-Semibold.otf') format('opentype');
             font-weight: 600;
             font-style: normal;
+            font-display: swap;
         }
         
         @font-face {
@@ -38,6 +42,7 @@
             src: url('/fonts/TestTiemposText-Regular.otf') format('opentype');
             font-weight: 400;
             font-style: normal;
+            font-display: swap;
         }
         
         * {
@@ -61,7 +66,6 @@
         }
         
         header {
-            border-bottom: 3px solid #000000;
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
@@ -93,29 +97,37 @@
         .contact a {
             color: #0563C1;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
         }
         
         .contact a:hover {
-            text-decoration: underline;
+            color: #4A7C9D;
+        }
+        
+        .contact a svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
         
         .summary {
             background: #FAF8F5;
             padding: 20px;
-            border-left: 4px solid #4A7C9D;
             margin-bottom: 30px;
             font-size: 0.95em;
         }
         
         h2 {
             font-family: 'Test Tiempos Headline', Georgia, serif;
-            font-weight: 400;
+            font-weight: 600;
             color: #4A7C9D;
             font-size: 1.5em;
             margin-top: 30px;
             margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #FAF8F5;
+            text-transform: none;
         }
         
         h3 {
@@ -124,7 +136,7 @@
             font-size: 0.9em;
             color: #000000;
             margin-bottom: 8px;
-            text-transform: uppercase;
+            text-transform: none;
             letter-spacing: 0.5px;
         }
         
@@ -248,10 +260,22 @@
             <div class="subtitle">DevOps Engineer | CCNA/CCNP Certified</div>
             <div class="contact">
                 <span>📍 Barcelona</span>
-                <a href="mailto:pietrouni@gmail.com">pietrouni@gmail.com</a>
                 <span>+34 682 635 992</span>
-                <a href="https://github.com/pietrocious" target="_blank">github.com/pietrocious</a>
-                <a href="https://linkedin.com/in/pietrouni" target="_blank">linkedin.com/in/pietrouni</a>
+                <a href="mailto:pietrouni@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/pietrocious" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/pietrouni" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
             </div>
         </header>
 
@@ -361,6 +385,38 @@
             </ul>
         </div>
 
+        <h2>Earlier Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Dole Food Company</div>
+                    <div class="job-title">Senior Service Desk Engineer</div>
+                </div>
+                <div class="date">Nov 2017 – Jun 2020</div>
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">Align Technology</div>
+                    <div class="job-title">iTero Specialist Engineer</div>
+                </div>
+                <div class="date">Nov 2016 – Nov 2017</div>
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="company">HP Inc.</div>
+                    <div class="job-title">Technical Support Engineer</div>
+                </div>
+                <div class="date">Jan 2014 – Nov 2016</div>
+            </div>
+        </div>
+
         <h2>Technical Projects</h2>
 
         <div class="project">
@@ -368,8 +424,16 @@
             <a href="https://github.com/pietrocious/suprsymmetry" class="project-link" target="_blank">github.com/pietrocious/suprsymmetry</a>
             <ul>
                 <li>Architected and deployed production-grade AWS infrastructure including multi-AZ VPC with public/private subnets, Application Load Balancers, and Auto Scaling Groups; infrastructure scales automatically based on demand with health checks and failover capabilities</li>
-                <li>Developed reusable Terraform modules for VPC networking, compute resources, and static site deployment; modules support centralized state management using S3 and DynamoDB locking</li>
-                <li>Built static website deployment on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
+                <li>Developed reusable Terraform modules for VPC networking, compute resources, and container orchestration; modules support multiple environments (dev/staging/prod) with centralized state management using S3 and DynamoDB locking</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Personal Portfolio Website</div>
+            <a href="https://suprsymmetry.com" class="project-link" target="_blank">suprsymmetry.com</a>
+            <ul>
+                <li>Built and deployed static website on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
+                <li>Automated entire deployment pipeline with Terraform and GitHub Actions; content changes automatically build, deploy to S3, and invalidate CloudFront cache within minutes</li>
             </ul>
         </div>
 
