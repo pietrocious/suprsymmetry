@@ -35,9 +35,9 @@ resource "aws_s3_bucket_public_access_block" "website" {
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
-  source       = "${path.module}/website/index.html"
+  source       = "${path.module}/site/index.html"
   content_type = "text/html"
-  etag         = filemd5("${path.module}/website/index.html")
+  etag         = filemd5("${path.module}/site/index.html")
 }
 
 # ACM certificate
