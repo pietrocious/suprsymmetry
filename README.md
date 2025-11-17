@@ -1,3 +1,9 @@
+# suprsymmetry.com
+
+[![CI/CD (suprsymmetry.com)](https://github.com/pietrocious/suprsymmetry/actions/workflows/terraform.yml/badge.svg)](https://github.com/pietrocious/suprsymmetry/actions/workflows/terraform.yml)
+[![](https://img.shields.io/website?down_color=red&down_message=offline&label=suprsymmetry.com&up_color=green&up_message=online&url=https%3A%2F%2Fsuprsymmetry.com)](https://suprsymmetry.com)
+
+
 # AWS infrastructure for a personal portfolio site
 
 [suprsymmetry.com](https://suprsymmetry.com)
