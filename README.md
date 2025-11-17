@@ -1,6 +1,6 @@
 # AWS infrastructure for a personal portfolio site
 
-**personal portfolio:** [suprsymmetry.com](https://suprsymmetry.com)
+[suprsymmetry.com](https://suprsymmetry.com)
 
 this is a production-grade cloud infrastructure designed to test devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
 
@@ -63,7 +63,7 @@ infrastructure/
 ├── networking/         # vpc foundation and network configuration
 ├── compute/            # auto-scaling infrastructure with monitoring
 ├── static-site/        # s3 + cloudfront + route53 configuration
-│   └── website/        # static website content
+│   └── site/           # static website content
 └── modules/
     └── vpc/            # reusable vpc terraform module
 
