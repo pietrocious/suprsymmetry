@@ -8,7 +8,7 @@ in physics, supersymmetry describes universal balance through particle partnersh
 
 like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. 
 
-built using [terraform](https://github.com/hashicorp/terraform)
+built using [terraform](https://github.com/hashicorp/terraform) and [AWS](https://github.com/aws)
 
 posting updates & soon video walk-through :)
 
