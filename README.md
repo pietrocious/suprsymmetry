@@ -1,4 +1,4 @@
-# a terraformed aws infrastructure for a personal portfolio site
+# AWS infrastructure for a personal portfolio site
 
 **personal portfolio:** [suprsymmetry.com](https://suprsymmetry.com)
 
@@ -16,7 +16,9 @@ posting updates & soon video walk-through :)
 
 ## project overview
 
-this repository showcases a complete aws infrastructure built with terraform, featuring multi-az networking, auto-scaling compute resources, global content delivery, and comprehensive monitoring. designed to demonstrate practical devops skills applicable to enterprise environments.
+this repository showcases a complete aws infrastructure built with terraform, featuring multi-az networking, auto-scaling compute resources, global content delivery, and monitoring. 
+
+designed to demonstrate practical devops skills applicable to enterprise environments
 
 ## architecture
 
@@ -36,19 +38,19 @@ this repository showcases a complete aws infrastructure built with terraform, fe
 
 **static site hosting**
 - s3 bucket with cloudfront cdn for global content delivery
-- route53 dns management with custom domain
-- acm ssl/tls certificates for https encryption
-- origin access control (oac) restricting s3 access to cloudfront only
+- Route53 DNS management with custom domain
+- ACM TLS/SSL certificates for https encryption
+- origin access control (OAC) restricting s3 access to cloudfront only
 - secure architecture preventing direct s3 access while enabling fast global delivery
 
 ### tech stack
 
 **infrastructure**
-- aws: vpc, ec2, alb, asg, s3, cloudfront, route53, acm, cloudwatch, sns
+- AWS: vpc, ec2, alb, asg, s3, cloudfront, route53, acm, cloudwatch, sns
 - terraform: infrastructure as code with reusable modules
 - github actions: automated validation on every commit
 
-**key devops practices**
+**devops practices**
 - infrastructure as code (iac) for reproducibility
 - modular design for reusability across environments
 - automated monitoring and alerting
@@ -75,7 +77,7 @@ archive/                # early experiments and learning iterations
 ## deployment
 
 ### prerequisites
-- aws cli configured with appropriate credentials
+- aws account and ec2 instance
 - terraform >= 1.13.3
 
 ### deploy infrastructure
