@@ -1,18 +1,20 @@
-# production aws infrastructure
+# a terraformed aws infrastructure for a personal portfolio site
+
+**personal portfolio:** [suprsymmetry.com](https://suprsymmetry.com)
 
 this is a production-grade cloud infrastructure designed to test devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
 
 in physics, supersymmetry describes universal balance through particle partnerships. in infrastructure, we build that balance through architectural patterns.
 
-like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. built using terraform.
+like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. 
 
-**live demo:** [suprsymmetry.com](https://suprsymmetry.com)
+built using [terraform ](https://github.com/hashicorp/terraform)
 
 posting updates & soon video walk-through :)
 
 ---
 
-## overview
+## project overview
 
 this repository showcases a complete aws infrastructure built with terraform, featuring multi-az networking, auto-scaling compute resources, global content delivery, and comprehensive monitoring. designed to demonstrate practical devops skills applicable to enterprise environments.
 
@@ -39,9 +41,7 @@ this repository showcases a complete aws infrastructure built with terraform, fe
 - origin access control (oac) restricting s3 access to cloudfront only
 - secure architecture preventing direct s3 access while enabling fast global delivery
 
----
-
-## tech stack
+### tech stack
 
 **infrastructure**
 - aws: vpc, ec2, alb, asg, s3, cloudfront, route53, acm, cloudwatch, sns
@@ -55,9 +55,7 @@ this repository showcases a complete aws infrastructure built with terraform, fe
 - security-first architecture (least privilege, encrypted traffic, restricted access)
 - cost optimization (destroy unused resources, leverage free tier)
 
----
-
-## structure
+### structure
 ```
 infrastructure/
 ├── networking/         # vpc foundation and network configuration
@@ -98,16 +96,14 @@ terraform init
 terraform apply
 ```
 
-estimated costs when running: ~$30-40/month (primarily alb + cloudfront)
-
 ---
 
 ## monitoring
 
 cloudwatch alarms configured for:
-- **high cpu (>15%)** → triggers scale-up to handle increased load
-- **low cpu (<30%)** → triggers scale-down to reduce costs
-- **unhealthy targets** → immediate sns email notification
+- **high_cpu (>15%)** → triggers scale-up to handle increased load
+- **low_cpu (<30%)** → triggers scale-down to reduce costs
+- **unhealthy_targets** → immediate sns email notification
 
 auto-scaling policies automatically adjust capacity based on demand, ensuring application remains responsive while optimizing costs
 
@@ -135,6 +131,5 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 ---
 
 ## contact
-
 
 - linkedin: [in/pietrouni](https://linkedin.com/in/pietrouni)
