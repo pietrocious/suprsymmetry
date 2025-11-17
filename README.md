@@ -132,6 +132,12 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 
 ---
 
+## special thanks
+
+- adrian cantrill's [SAA course] (https://learn.cantrill.io/p/aws-certified-solutions-architect-associate-saa-c03)
+- logan marchione's [best devops project for a beginner] (https://loganmarchione.com/2022/10/the-best-devops-project-for-a-beginner/)
+- [r/devops] (https://www.reddit.com/r/devops/?rdt=63211)
+
 ## contact
 
 - linkedin: [in/pietrouni](https://linkedin.com/in/pietrouni)
