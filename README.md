@@ -140,4 +140,5 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 
 ## contact
 
-- linkedin: [in/pietrouni](https://linkedin.com/in/pietrouni)
+- [in/pietrouni](https://linkedin.com/in/pietrouni)
+- [pietrouni@gmail.com](mailto:pietrouni@gmail.com)

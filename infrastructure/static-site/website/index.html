@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pietro Uni Segura - DevOps Engineer</title>
+    
+    <!-- favicon configuration -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    
     <style>
+        /* custom fonts loaded from s3 bucket fonts/ directory */
+        /* copernicus trial: heavy and extrabold weights for main heading */
         @font-face {
             font-family: 'Copernicus Trial';
             src: url('/fonts/CopernicusTrial-Heavy.ttf') format('truetype');
@@ -26,6 +31,7 @@
             font-display: swap;
         }
         
+        /* test tiempos headline: regular and semibold for section headings */
         @font-face {
             font-family: 'Test Tiempos Headline';
             src: url('/fonts/TestTiemposHeadline-Regular.otf') format('opentype');
@@ -42,6 +48,7 @@
             font-display: swap;
         }
         
+        /* test tiempos text: regular weight for body copy and lists */
         @font-face {
             font-family: 'Test Tiempos Text';
             src: url('/fonts/TestTiemposText-Regular.otf') format('opentype');
@@ -50,12 +57,17 @@
             font-display: swap;
         }
         
+        /* css reset: removes browser default spacing and ensures consistent box sizing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        /* base typography and brand colors */
+        /* background: #FAF8F5 (warm off-white) */
+        /* text: #000000 (pure black) */
+        /* accent: #4A7C9D (muted blue for headings and links) */
         body {
             font-family: 'Test Tiempos Text', Georgia, serif;
             line-height: 1.6;
@@ -64,17 +76,20 @@
             padding: 20px;
         }
         
+        /* main content container: centered with max-width for readability */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
         }
         
+        /* header section with name and contact info */
         header {
             padding-bottom: 8px;
             margin-bottom: 12px;
         }
         
+        /* main heading: name styled with copernicus heavy */
         h1 {
             font-family: 'Copernicus Trial', serif;
             font-weight: 900;
@@ -83,6 +98,7 @@
             margin-bottom: 5px;
         }
         
+        /* subtitle: job title and certifications in copernicus extrabold */
         .subtitle {
             font-family: 'Copernicus Trial', serif;
             font-weight: 800;
@@ -91,6 +107,7 @@
             margin-bottom: 8px;
         }
         
+        /* contact information bar with location, phone, and social links */
         .contact {
             display: flex;
             align-items: center;
@@ -101,6 +118,7 @@
             margin-bottom: 6px;
         }
         
+        /* contact links with svg icons, hover effect darkens blue */
         .contact a {
             color: #4A7C9D;
             text-decoration: none;
@@ -119,6 +137,7 @@
             fill: currentColor;
         }
         
+        /* professional summary section - highlights key qualifications */
         .summary {
             background: #FAF8F5;
             padding: 18px;
@@ -126,6 +145,7 @@
             font-size: 0.95em;
         }
         
+        /* section headings, uses tiempos headline semibold in brand blue */
         h2 {
             font-family: 'Test Tiempos Headline', Georgia, serif;
             font-weight: 600;
@@ -137,6 +157,7 @@
             text-transform: none;
         }
         
+        /* subsection headings, skill categories and other third-level headings */
         h3 {
             font-family: 'Test Tiempos Headline', Georgia, serif;
             font-weight: 600;
@@ -147,6 +168,7 @@
             letter-spacing: 0.5px;
         }
         
+        /* skills grid, responsive layout adapts to screen size */
         .skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -154,6 +176,7 @@
             margin-bottom: 30px;
         }
         
+        /* individual skill category box */
         .skill-category {
             background: #FAF8F5;
             padding: 15px;
@@ -169,10 +192,12 @@
             padding: 3px 0;
         }
         
+        /* job/experience entry container */
         .job {
             margin-bottom: 30px;
         }
         
+        /* job header: company name, title, and dates in flexbox layout */
         .job-header {
             display: flex;
             justify-content: space-between;
@@ -180,6 +205,7 @@
             margin-bottom: 8px;
         }
         
+        /* job title styling */
         .job-title {
             font-family: 'Test Tiempos Headline', Georgia, serif;
             font-weight: 600;
@@ -187,6 +213,7 @@
             color: #000000;
         }
         
+        /* company name in copernicus extrabold */
         .company {
             font-family: 'Copernicus Trial', serif;
             font-weight: 800;
@@ -194,12 +221,14 @@
             font-size: 1.05em;
         }
         
+        /* employment dates, aligned to the right */
         .date {
             color: #000000;
             font-size: 0.9em;
             white-space: nowrap;
         }
         
+        /* job responsibilities list */
         .job ul {
             margin-left: 20px;
             margin-top: 8px;
@@ -210,10 +239,12 @@
             font-size: 0.95em;
         }
         
+        /* project entry container */
         .project {
             margin-bottom: 25px;
         }
         
+        /* project title */
         .project-title {
             font-family: 'Test Tiempos Headline', Georgia, serif;
             font-weight: 600;
@@ -222,6 +253,7 @@
             margin-bottom: 5px;
         }
         
+        /* project links to github/live demos, uses link blue #0563C1 */
         .project-link {
             color: #0563C1;
             text-decoration: none;
@@ -232,6 +264,7 @@
             text-decoration: underline;
         }
         
+        /* certification entries name and expiration date */
         .cert {
             display: flex;
             justify-content: space-between;
@@ -239,6 +272,7 @@
             font-size: 0.95em;
         }
         
+        /* responsive design to stack the job headers on mobile */
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -256,6 +290,7 @@
     </style>
 </head>
 <body>
+ <!-- actual resume content -->
     <div class="container">
         <header>
             <h1>Pietro Uni Segura</h1>
@@ -283,8 +318,10 @@
 
         <div class="summary">
             Professional with 4+ years of production infrastructure experience building and operating platforms. 
-            With knowledge in Terraform, Kubernetes, Docker, and AWS for infrastructure automation and container orchestration. 
-            Expertise in networking knowledge (CCNA/CCNP certified) provides strong foundation for troubleshooting distributed systems, designing scalable architectures, and managing high-availability environments.
+            Expertise in Terraform, Kubernetes, Docker, and AWS for infrastructure automation and container orchestration. 
+            Deep networking knowledge (CCNA/CCNP certified) provides strong foundation for troubleshooting distributed systems, 
+            designing scalable architectures, and managing high-availability environments. Proven ability to reduce operational 
+            overhead through automation and implement zero-downtime deployments.
         </div>
 
         <h2>Technical Skills</h2>
@@ -294,7 +331,8 @@
                 <ul>
                     <li>Enterprise Routing & Switching</li>
                     <li>OSPF, EIGRP, BGP, STP</li>
-                    <li>Cisco Catalyst, DNA Center devices</li>
+                    <li>Cisco Catalyst, DNA Center</li>
+                    <li>Palo Alto firewalls</li>
                     <li>CCNA 200-301, ENARSI 300-410</li>
                 </ul>
             </div>
@@ -302,7 +340,7 @@
                 <h3>Cloud & Infrastructure</h3>
                 <ul>
                     <li>AWS (VPC, EC2, S3, CloudFront, Route53)</li>
-                    <li>IaC: Terraform</li>
+                    <li>Terraform and Ansible</li>
                     <li>Linux system administration</li>
                     <li>Kubernetes, Docker</li>
                     <li>Multi-cloud operations (AWS, Azure)</li>
@@ -311,7 +349,7 @@
             <div class="skill-category">
                 <h3>Monitoring & Automation</h3>
                 <ul>
-                    <li>Splunk, Nagios</li>
+                    <li>Grafana, Splunk, Nagios</li>
                     <li>CloudWatch, Azure Monitor</li>
                     <li>Python scripting</li>
                     <li>Network automation</li>
@@ -326,14 +364,15 @@
             <div class="job-header">
                 <div>
                     <div class="company">Giesecke+Devrient</div>
-                    <div class="job-title">Network Operations Center Engineer</div>
+                    <div class="job-title">Network Operations Engineer</div>
                 </div>
-                <div class="date">Apr 2024 – Present</div>
+                <div class="date">Apr 2024 – Feb 2025</div>
             </div>
             <ul>
-                <li>Monitor production payment infrastructure using Azure Monitor, Splunk, and OMD (Naemon-based monitoring), responding to alerts and incidents to maintain service availability for critical financial systems</li>
-                <li>Review and validate L2 incident tickets for completeness including root cause analysis documentation, ensuring operational procedures are followed and knowledge is properly captured</li>
-                <li>Schedule maintenance windows and coordinate customer notifications for infrastructure changes including network device upgrades, security patches, and system migrations</li>
+                <li>Monitor and maintain production payment infrastructure using Azure, Splunk, Nagios, and OP5, ensuring 99.9% uptime for critical financial services</li>
+                <li>Configure and manage Palo Alto firewalls and network security controls, implementing defense-in-depth strategies for PCI-compliant environments</li>
+                <li>Conduct root cause analysis for network outages; document findings and implement preventive automation to reduce MTTD/MTTR by ~30%</li>
+                <li>Coordinate maintenance windows across distributed infrastructure, minimizing service disruption through careful change management and rollback planning</li>
             </ul>
         </div>
 
@@ -412,12 +451,11 @@
         </div>
 
         <div class="project">
-            <div class="project-title">Personal Portfolio Website</div>
+            <div class="project-title">Personal Portfolio Website (you are here)</div>
             <a href="https://suprsymmetry.com" class="project-link" target="_blank">suprsymmetry.com</a>
             <ul>
-                <li>Deployed static website on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
-                <li>Implemented infrastructure-as-code using terraform with remote state management (s3 backend + dynamodb locking); the entire site infrastructure is reproducible from code</li>
-                <li>Built reusable terraform modules for vpc networking (multi-az with public/private subnets), alb/asg compute resources, validated through destroy/rebuild testing</li>
+                <li>Built and deployed static website on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
+                <li>Automated entire deployment pipeline with Terraform and GitHub Actions; content changes automatically build, deploy to S3, and invalidate CloudFront cache within minutes</li>
             </ul>
         </div>
 
@@ -455,15 +493,15 @@
         <h2>Certifications</h2>
         <div class="cert">
             <span>AXELOS, ITIL® Foundations V4</span>
-            <span class="date">Oct 2023</span>
+            <span class="date">obtained Oct 2023</span>
         </div>
         <div class="cert">
             <span>Cisco, CCNA 200-301</span>
-            <span class="date">Valid until May 2027</span>
+            <span class="date">valid until May 2027</span>
         </div>
         <div class="cert">
             <span>Cisco, ENARSI 300-410</span>
-            <span class="date">Valid until May 2027</span>
+            <span class="date">valid until May 2027</span>
         </div>
 
     </div>
