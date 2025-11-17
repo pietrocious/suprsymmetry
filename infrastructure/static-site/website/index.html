@@ -320,8 +320,7 @@
             Professional with 4+ years of production infrastructure experience building and operating platforms. 
             Expertise in Terraform, Kubernetes, Docker, and AWS for infrastructure automation and container orchestration. 
             Deep networking knowledge (CCNA/CCNP certified) provides strong foundation for troubleshooting distributed systems, 
-            designing scalable architectures, and managing high-availability environments. Proven ability to reduce operational 
-            overhead through automation and implement zero-downtime deployments.
+            designing scalable architectures, and managing high-availability environments. 
         </div>
 
         <h2>Technical Skills</h2>
@@ -332,7 +331,7 @@
                     <li>Enterprise Routing & Switching</li>
                     <li>OSPF, EIGRP, BGP, STP</li>
                     <li>Cisco Catalyst, DNA Center</li>
-                    <li>Palo Alto firewalls</li>
+                    <li>Cisco IOS and Linux-based Cisco DNA devices</li>
                     <li>CCNA 200-301, ENARSI 300-410</li>
                 </ul>
             </div>
@@ -340,16 +339,16 @@
                 <h3>Cloud & Infrastructure</h3>
                 <ul>
                     <li>AWS (VPC, EC2, S3, CloudFront, Route53)</li>
-                    <li>Terraform and Ansible</li>
+                    <li>IaC: Terraform</li>
                     <li>Linux system administration</li>
-                    <li>Kubernetes, Docker</li>
+                    <li>Kubernetes, Docker containerization</li>
                     <li>Multi-cloud operations (AWS, Azure)</li>
                 </ul>
             </div>
             <div class="skill-category">
                 <h3>Monitoring & Automation</h3>
                 <ul>
-                    <li>Grafana, Splunk, Nagios</li>
+                    <li>Splunk, Nagios, Naemon</li>
                     <li>CloudWatch, Azure Monitor</li>
                     <li>Python scripting</li>
                     <li>Network automation</li>
@@ -366,13 +365,12 @@
                     <div class="company">Giesecke+Devrient</div>
                     <div class="job-title">Network Operations Engineer</div>
                 </div>
-                <div class="date">Apr 2024 – Feb 2025</div>
+                <div class="date">Apr 2024 – Present</div>
             </div>
             <ul>
-                <li>Monitor and maintain production payment infrastructure using Azure, Splunk, Nagios, and OP5, ensuring 99.9% uptime for critical financial services</li>
-                <li>Configure and manage Palo Alto firewalls and network security controls, implementing defense-in-depth strategies for PCI-compliant environments</li>
-                <li>Conduct root cause analysis for network outages; document findings and implement preventive automation to reduce MTTD/MTTR by ~30%</li>
-                <li>Coordinate maintenance windows across distributed infrastructure, minimizing service disruption through careful change management and rollback planning</li>
+                <li>Monitor production payment infrastructure using Azure Monitor, Splunk, and OMD (Naemon-based monitoring), responding to alerts and incidents to maintain service availability for critical financial systems</li>
+                <li>Review and validate L2 incident tickets for completeness including root cause analysis documentation, ensuring operational procedures are followed and knowledge is properly captured</li>
+                <li>Schedule maintenance windows and coordinate customer notifications for infrastructure changes including network device upgrades, security patches, and system migrations</li>
             </ul>
         </div>
 
@@ -454,16 +452,16 @@
             <div class="project-title">Personal Portfolio Website (you are here)</div>
             <a href="https://suprsymmetry.com" class="project-link" target="_blank">suprsymmetry.com</a>
             <ul>
-                <li>Built and deployed static website on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
-                <li>Automated entire deployment pipeline with Terraform and GitHub Actions; content changes automatically build, deploy to S3, and invalidate CloudFront cache within minutes</li>
+                <li>Deployed static website on AWS using S3, CloudFront CDN, and Route53 for DNS management; configured SSL/TLS certificates via AWS Certificate Manager for secure HTTPS access</li>
+                <li>Implemented infrastructure-as-code using terraform with remote state management (s3 backend + dynamodb locking); the entire site infrastructure is reproducible from code</li>
+                <li>Built reusable terraform modules for vpc networking (multi-az with public/private subnets), alb/asg compute resources, validated through destroy/rebuild testing</li>
             </ul>
         </div>
 
         <div class="project">
             <div class="project-title">Network Automation & Infrastructure</div>
             <ul>
-                <li>Developed Python scripts to automate Cisco device configuration backups, compliance validation, and bulk configuration changes across 20+ devices; reduced manual errors by 95%</li>
-                <li>Created Ansible playbooks for network device provisioning and configuration management; decreased deployment time by 80% while ensuring consistency</li>
+                <li>Developed Python scripts on Cisco devices using DNA Center to automate configuration backups, compliance validation, and bulk configuration changes across 20+ devices; reduced manual errors by 95%</li>
                 <li>Applied networking fundamentals (TCP/IP, routing, security groups, NACLs) to cloud infrastructure design; leveraged deep understanding of network protocols for troubleshooting and optimization</li>
             </ul>
         </div>
