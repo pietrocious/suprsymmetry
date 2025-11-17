@@ -1,6 +1,6 @@
 # suprsymmetry.com
 
-[![CI/CD](https://github.com/pietrocious/suprsymmetry/actions/workflows/terraform.yml/badge.svg)](https://github.com/pietrocious/suprsymmetry/actions/workflows/terraform.yml)
+[![CI/CD](https://github.com/pietrocious/suprsymmetry/actions/workflows/production.yml/badge.svg)](https://github.com/pietrocious/suprsymmetry/actions/workflows/production.yml)
 [![](https://img.shields.io/website?down_color=red&down_message=offline&label=suprsymmetry.com&up_color=green&up_message=online&url=https%3A%2F%2Fsuprsymmetry.com)](https://suprsymmetry.com)
 
 
