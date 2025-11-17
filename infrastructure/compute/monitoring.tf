@@ -1,4 +1,4 @@
-# SNS Topic for Alerts
+# SNS topic for infra alerts
 resource "aws_sns_topic" "alerts" {
   name = "production-infrastructure-alerts"
 }
@@ -9,7 +9,7 @@ resource "aws_sns_topic_subscription" "email_alerts" {
   endpoint  = "pietrouni@gmail.com"  # Your email
 }
 
-# CloudWatch Alarm - High CPU
+# cloudwatch alarm for high_cpu
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   alarm_name          = "production-high-cpu"
   comparison_operator = "GreaterThanThreshold"
@@ -19,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   period              = 60
   statistic           = "Average"
   threshold           = 15
-  alarm_description   = "Triggers when CPU exceeds 70%"
+  alarm_description   = "triggers when CPU exceeds 70%"
   alarm_actions       = [
     aws_sns_topic.alerts.arn,
     aws_autoscaling_policy.scale_up.arn
@@ -30,7 +30,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   }
 }
 
-# CloudWatch Alarm - Low CPU
+# cloudwatch alarm for low_cpu
 resource "aws_cloudwatch_metric_alarm" "low_cpu" {
   alarm_name          = "production-low-cpu"
   comparison_operator = "LessThanThreshold"
@@ -40,7 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu" {
   period              = 60
   statistic           = "Average"
   threshold           = 30
-  alarm_description   = "Triggers when CPU below 30%"
+  alarm_description   = "triggers when CPU below 30%"
   alarm_actions       = [aws_autoscaling_policy.scale_down.arn]
 
   dimensions = {
@@ -48,7 +48,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu" {
   }
 }
 
-# CloudWatch Alarm - Unhealthy Targets
+# cloudwatch alarm for  unhealthy_targets
 resource "aws_cloudwatch_metric_alarm" "unhealthy_targets" {
   alarm_name          = "production-unhealthy-targets"
   comparison_operator = "GreaterThanThreshold"
@@ -67,7 +67,7 @@ resource "aws_cloudwatch_metric_alarm" "unhealthy_targets" {
   }
 }
 
-# Auto Scaling Policy - Scale Up
+# scale_up policy
 resource "aws_autoscaling_policy" "scale_up" {
   name                   = "production-scale-up"
   scaling_adjustment     = 1
@@ -76,7 +76,7 @@ resource "aws_autoscaling_policy" "scale_up" {
   autoscaling_group_name = aws_autoscaling_group.app.name
 }
 
-# Auto Scaling Policy - Scale Down
+# scale_down policy
 resource "aws_autoscaling_policy" "scale_down" {
   name                   = "production-scale-down"
   scaling_adjustment     = -1

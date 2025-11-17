@@ -31,7 +31,7 @@ resource "aws_s3_bucket_public_access_block" "website" {
   restrict_public_buckets = false  # allow bucket policy for cloudfront
 }
 
-# Upload website content
+# upload website files
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
@@ -40,8 +40,7 @@ resource "aws_s3_object" "index" {
   etag         = filemd5("${path.module}/website/index.html")
 }
 
-# ACM certificate (must be created manually first in console)
-# We'll reference the existing one for now
+# ACM certificate
   data "aws_acm_certificate" "website" {
   domain   = "suprsymmetry.com"
   statuses = ["ISSUED"]

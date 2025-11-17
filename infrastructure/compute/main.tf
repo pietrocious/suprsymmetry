@@ -11,7 +11,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Use your VPC module
+# vpc module config
 module "vpc" {
   source = "../modules/vpc"
   
@@ -20,10 +20,10 @@ module "vpc" {
   availability_zones     = ["us-east-1a", "us-east-1b"]
   public_subnet_cidrs    = ["10.1.1.0/24", "10.1.2.0/24"]
   private_subnet_cidrs   = ["10.1.11.0/24", "10.1.12.0/24"]
-  enable_nat_gateway     = false  # Keep costs down
+  enable_nat_gateway     = false
 }
 
-# Security Group for ALB (public-facing)
+# alb sec group (allows http from  internet) 
 resource "aws_security_group" "alb" {
   name        = "production-alb-sg"
   description = "Security group for Application Load Balancer"
@@ -51,7 +51,7 @@ resource "aws_security_group" "alb" {
   }
 }
 
-# Security Group for EC2 instances
+# ec2 instance sec group (allows traffic from alb)
 resource "aws_security_group" "instances" {
   name        = "production-instances-sg"
   description = "Security group for EC2 instances"
@@ -70,7 +70,7 @@ ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["172.31.0.0/16"]  # Your VPC CIDR (allows SSH from any instance in VPC)
+    cidr_blocks = ["172.31.0.0/16"]
   }
 
   egress {
@@ -87,7 +87,7 @@ ingress {
   }
 }
 
-# Application Load Balancer
+# app load balancer (alb) config
 resource "aws_lb" "main" {
   name               = "production-alb"
   internal           = false
@@ -101,7 +101,7 @@ resource "aws_lb" "main" {
   }
 }
 
-# Target Group
+# target group
 resource "aws_lb_target_group" "app" {
   name     = "production-tg"
   port     = 80
@@ -126,7 +126,7 @@ resource "aws_lb_target_group" "app" {
   }
 }
 
-# ALB Listener
+# http listenr forwards to target group
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.main.arn
   port              = 80
@@ -138,7 +138,7 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-# Get latest Amazon Linux 2023 AMI
+# amazon linux ami config
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
@@ -149,7 +149,7 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-# Launch Template
+# launch template config for auto scaling group
 resource "aws_launch_template" "app" {
   name_prefix   = "production-"
   image_id      = data.aws_ami.amazon_linux.id
@@ -180,7 +180,7 @@ user_data = base64encode(<<-EOF
   }
 }
 
-# Auto Scaling Group
+# auto scaling groupwith alb integration
 resource "aws_autoscaling_group" "app" {
   name                = "production-asg"
   vpc_zone_identifier = module.vpc.public_subnet_ids
