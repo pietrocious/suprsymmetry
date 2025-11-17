@@ -8,7 +8,7 @@ in physics, supersymmetry describes universal balance through particle partnersh
 
 like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. 
 
-built using [terraform ](https://github.com/hashicorp/terraform)
+built using [terraform](https://github.com/hashicorp/terraform)
 
 posting updates & soon video walk-through :)
 
@@ -134,9 +134,9 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 
 ## special thanks
 
-- adrian cantrill's [SAA course] (https://learn.cantrill.io/p/aws-certified-solutions-architect-associate-saa-c03)
-- logan marchione's [best devops project for a beginner] (https://loganmarchione.com/2022/10/the-best-devops-project-for-a-beginner/)
-- [r/devops] (https://www.reddit.com/r/devops/?rdt=63211)
+- adrian cantrill's [SAA course](https://learn.cantrill.io/p/aws-certified-solutions-architect-associate-saa-c03)
+- logan marchione's [best devops project for a beginner](https://loganmarchione.com/2022/10/the-best-devops-project-for-a-beginner/)
+- [r/devops](https://www.reddit.com/r/devops/?rdt=63211)
 
 ## contact
 
