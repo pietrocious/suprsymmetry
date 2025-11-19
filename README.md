@@ -65,13 +65,15 @@ designed to demonstrate practical devops skills applicable to enterprise environ
 
 ### structure
 ```
-infrastructure/
-├── networking/         # vpc foundation and network configuration
-├── compute/            # auto-scaling infrastructure with monitoring
-├── static-site/        # s3 + cloudfront + route53 configuration
-│   └── site/           # static website content
-└── modules/
-    └── vpc/            # reusable vpc terraform module
+infrastructure/static-site/
+├── main.tf          # terraform/provider config only
+├── acm.tf           # certificate
+├── s3.tf            # bucket, policy, objects
+├── cloudfront.tf    # cdn distribution and oac
+├── route53.tf       # dns zone and records
+├── outputs.tf       # all outputs
+└── site/            # website files
+    └── index.html
 
 docs/                   # architecture documentation and reference configs
 archive/                # early experiments and learning iterations
