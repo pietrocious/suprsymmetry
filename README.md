@@ -90,19 +90,9 @@ archive/                # early experiments and learning iterations
 
 ### deploy infrastructure
 ```bash
-# networking layer
-cd infrastructure/networking
+# under construction
 terraform init
-terraform apply
-
-# compute layer (requires networking)
-cd ../compute
-terraform init
-terraform apply
-
-# static site
-cd ../static-site
-terraform init
+terraform plan
 terraform apply
 ```
 
@@ -129,14 +119,15 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 
 ---
 
-## future enhancements
+## todo
 
-- container orchestration with eks
-- remote state management with s3 backend and dynamodb locking
-- multi-environment setup (dev/staging/prod)
-- automated testing and deployment pipeline
-- infrastructure cost tracking and optimization dashboards
-- security hardening and compliance automation
+- [ ] container orchestration with eks
+- [ ] remote state management with s3 backend and dynamodb locking
+- [ ] multi-environment setup (dev/staging/prod)
+- [ ] automated testing and deployment pipeline
+- [ ] infrastructure cost tracking and optimization dashboards
+- [ ] security hardening and compliance automation
+- [ ] revamped portfolio website
 
 ---
 
