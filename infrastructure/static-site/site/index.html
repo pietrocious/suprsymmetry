@@ -110,7 +110,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                <span class="text-xs text-center font-medium drop-shadow-md">About_Me.txt</span>
+                <span class="text-xs text-center font-medium drop-shadow-md">About_Me.md</span>
             </div>
 
             <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors" onclick="openWindow('projects')">
@@ -260,11 +260,11 @@
         // --- Window Management ---
         const windows = {
             about: {
-                title: "About_Me.txt",
+                title: "aboutme.md",
                 icon: "📄",
                 content: `
                     <div class="p-6 font-mono text-sm leading-relaxed">
-                        <h1 class="text-2xl font-bold text-blue-400 mb-4">Hello, World! 👋</h1>
+                        <h1 class="text-2xl font-bold text-blue-400 mb-4">hello there</h1>
                         <p class="mb-4">I'm Pietro Uni, an Infrastructure Engineer with 4+ years of production experience building and operating enterprise platforms.</p>
                         <p class="mb-4">Deep networking foundation (CCNA/CCNP certified, 3+ years Cisco TAC) enables rapid troubleshooting of distributed systems, design of scalable architectures, and management of high-availability environments.</p>
                         
@@ -346,12 +346,12 @@
                 content: `
                     <div class="h-full bg-black p-2 font-mono text-sm text-green-500 flex flex-col" onclick="document.getElementById('term-input').focus()">
                         <div id="term-output" class="flex-1 overflow-y-auto mb-2">
-                            <div>Welcome to suprsymmetry Shell v1.0</div>
+                            <div>Welcome to the suprsymmetry Shell v1.0</div>
                             <div>Type 'help' for available commands.</div>
                             <br>
                         </div>
                         <div class="flex items-center">
-                            <span class="mr-2 text-blue-400">pietro@suprsymmetry:~$</span>
+                            <span class="mr-2 text-blue-400">visitor@suprsymmetry:~$</span>
                             <input type="text" id="term-input" class="bg-transparent border-none outline-none text-green-500 flex-1" autocomplete="off">
                         </div>
                     </div>
@@ -552,10 +552,10 @@
 
         // --- Terminal Logic ---
         const fileSystem = {
-            'about.txt': "Name: Pietro Uni Segura\nRole: Infrastructure Engineer\nLocation: Barcelona, Spain\nCertifications: CCNA 200-301, ENARSI 300-410, ITIL v4",
+            'about.md': "Name: Pietro Uni Segura\nRole: Infrastructure Engineer\nLocation: Barcelona, Spain\nCertifications: CCNA 200-301, ENARSI 300-410, ITIL v4",
             'skills.md': "# Technical Skills\n\n## Cloud & Infrastructure\n- AWS (VPC, EC2, S3, CloudFront, Route53)\n- Terraform / Ansible\n- Kubernetes / Docker\n- Linux / Windows Server\n\n## Networking\n- OSPF / EIGRP / BGP / STP\n- Cisco Catalyst / DNA Center\n- Python scripting\n- Protocol analysis\n\n## Monitoring\n- Splunk / Nagios / Azure Monitor\n- CloudWatch\n- Log analysis and RCA",
-            'contact.txt': "Email: pietrouni@gmail.com\nPhone: +34 682 635 992\nGitHub: github.com/pietrocious\nLinkedIn: linkedin.com/in/pietrouni\nWebsite: suprsymmetry.com",
-            'projects.txt': "1. suprsymmetry - Production AWS infrastructure with Terraform\n2. Portfolio Website - Static site on S3/CloudFront/Route53\n3. Network Automation - Python scripts for Cisco DNA Center"
+            'contact.md': "Email: pietrouni@gmail.com\nPhone: +34 682 635 992\nGitHub: github.com/pietrocious\nLinkedIn: linkedin.com/in/pietrouni\nWebsite: suprsymmetry.com",
+            'projects.md': "1. suprsymmetry - Production AWS infrastructure with Terraform\n2. Portfolio Website - Static site on S3/CloudFront/Route53\n3. Network Automation - Python scripts for Cisco DNA Center"
         };
 
         function handleTerminalCommand(e) {
