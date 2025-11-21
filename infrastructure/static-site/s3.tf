@@ -43,11 +43,20 @@ resource "aws_s3_bucket_policy" "website" {
   })
 }
 
-# upload website files
+# desktop landing page
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
   source       = "${path.module}/site/index.html"
   content_type = "text/html"
   etag         = filemd5("${path.module}/site/index.html")
+}
+
+# resume page @ /resume
+resource "aws_s3_object" "resume" {
+  bucket       = aws_s3_bucket.website.id
+  key          = "resume.html"
+  source       = "${path.module}/site/resume.html"
+  content_type = "text/html"
+  etag         = filemd5("${path.module}/site/resume.html")
 }
