@@ -503,7 +503,6 @@
             "Loading user profile: Guest",
             "Starting UI Subsystem...",
             "Establishing secure connection to S3...",
-            "Loading typography...",
             "Loading assets...",
             "Done.",
             "Welcome to suprsymmetry.com"
@@ -556,63 +555,110 @@
                         <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 font-serif tracking-tight">Hi, I'm Pietro <span class="animate-pulse inline-block">👋</span></h1>
                         
                         <div class="space-y-8">
+                            <!-- My Journey -->
                             <div>
                                 <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
                                     My Journey
                                 </h2>
                                 <p class="leading-7">
-                                    Welcome to my corner of the digital world. I started my tech journey in Costa Rica at <span class="font-bold text-slate-900 dark:text-white">Universidad CENFOTEC</span>, diving deep into cybersecurity and network infrastructure. My path led me through the high-pressure trenches of enterprise networking at <span class="font-bold text-slate-900 dark:text-white">Cisco TAC</span>, where I spent years troubleshooting complex distributed systems and routing protocols.
+                                    I'm an <span class="font-bold text-slate-900 dark:text-white">Infrastructure Engineer</span> based in Barcelona with a somewhat winding path through tech. What started as HP printer support in 2014 eventually led me through enterprise help desk work, specialized medical device support, and into the world of enterprise networking. I spent over three years at <span class="font-bold text-slate-900 dark:text-white">Cisco TAC</span> solving complex routing, switching, and SDN problems for Fortune 500 companies—the kind of work that teaches you how distributed systems actually break in production.
+                                </p>
+                                <p class="leading-7 mt-4">
+                                    These days, I'm at <span class="font-bold text-slate-900 dark:text-white">Giesecke+Devrient</span> monitoring production payment infrastructure while actively transitioning toward DevOps and Platform Engineering. I've realized I'd rather build and automate systems than just keep them running.
                                 </p>
                             </div>
 
+                            <!-- What I'm Building -->
                             <div>
                                 <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
-                                    What I'm Up To Now
+                                    What I'm Building
                                 </h2>
                                 <p class="leading-7 mb-4">
-                                    Now based in <span class="font-bold text-slate-900 dark:text-white">Barcelona, Spain</span>, I've transitioned my deep networking knowledge into the world of Cloud and DevOps.
+                                    I believe the best way to learn is to build things that actually work. My current focus is creating production-grade infrastructure projects that demonstrate real DevOps capabilities:
                                 </p>
-                                <p class="leading-7">
-                                    I'm currently an <span class="font-bold text-slate-900 dark:text-white">Infrastructure Engineer</span> at <span class="font-bold text-slate-900 dark:text-white">Giesecke+Devrient</span>. I focus on automating infrastructure using <span class="font-mono text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-[#79c0ff] px-1.5 py-0.5 rounded">Terraform</span>, managing containerized workloads on <span class="font-mono text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-[#79c0ff] px-1.5 py-0.5 rounded">Kubernetes</span>, and ensuring high availability for critical financial systems.
-                                </p>
-                                <p class="mt-4 text-slate-500 dark:text-slate-400 italic border-l-4 border-slate-200 dark:border-slate-700 pl-4 py-1">
-                                    "Reliability is the most important feature."
+                                <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-[#c9d1d9]">
+                                    <li><strong class="text-slate-900 dark:text-white">suprsymmetry.com</strong> – My portfolio site running on AWS with full Infrastructure-as-Code. Multi-AZ VPC, auto-scaling groups, CloudFront CDN, all managed through Terraform with proper state management.</li>
+                                    <li><strong class="text-slate-900 dark:text-white">Reusable Terraform modules</strong> – Building blocks for VPC networking, compute resources, and container orchestration that work across dev/staging/prod environments.</li>
+                                    <li><strong class="text-slate-900 dark:text-white">Network automation</strong> – Python scripts that eliminate manual configuration work across Cisco infrastructure.</li>
+                                </ul>
+                                <p class="leading-7 mt-4">
+                                    You can see the code behind these projects on my <a href="https://github.com/pietrocious" target="_blank" class="text-blue-600 hover:underline dark:text-[#58a6ff]">GitHub</a>.
                                 </p>
                             </div>
 
+                            <!-- Professional Background -->
                             <div>
                                 <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-4 font-headline">
-                                    Professional Journey
+                                    Professional Background
                                 </h2>
-                                <div class="space-y-2 font-mono text-sm">
-                                    <div class="group flex items-start gap-3 p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
-                                        <span class="text-blue-500 dark:text-[#58a6ff] mt-0.5">▶</span> 
-                                        <div>
-                                            <div class="font-bold text-slate-900 dark:text-white">Network Operations Engineer</div>
-                                            <div class="text-slate-500">Giesecke+Devrient • 2024 - Present</div>
+                                <div class="space-y-4 font-mono text-sm">
+                                    <div class="group flex flex-col p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <span class="text-blue-500 dark:text-[#58a6ff]">▶</span> 
+                                            <span class="font-bold text-slate-900 dark:text-white">Network Operations Engineer</span>
                                         </div>
+                                        <div class="ml-5 text-slate-500 mb-1">Giesecke+Devrient • 2024 - Present</div>
+                                        <div class="ml-5 text-slate-600 dark:text-slate-400">Monitoring and incident response for production payment systems using Splunk, Azure Monitor, and Naemon.</div>
                                     </div>
-                                    <div class="group flex items-start gap-3 p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
-                                        <span class="text-slate-400 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors mt-0.5">▷</span> 
-                                        <div>
-                                            <div class="text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Cisco TAC Engineer L2 (DNA Center)</div>
-                                            <div class="text-slate-500 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-500">Cisco • 2023 - 2024</div>
+
+                                    <div class="group flex flex-col p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <span class="text-slate-400 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">▷</span> 
+                                            <span class="font-bold text-slate-900 dark:text-white">Cisco TAC Engineer</span>
                                         </div>
+                                        <div class="ml-5 text-slate-500 mb-1">Cisco • 2020 - 2024</div>
+                                        <div class="ml-5 text-slate-600 dark:text-slate-400">Tier 1/2 support for enterprise routing & switching, then moved to DNA Center (Kubernetes-based SDN platform). Handled everything from BGP troubleshooting to zero-downtime cluster upgrades.</div>
                                     </div>
-                                    <div class="group flex items-start gap-3 p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
-                                        <span class="text-slate-400 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors mt-0.5">▷</span> 
-                                        <div>
-                                            <div class="text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Cisco TAC Engineer L2 (LAN Switching)</div>
-                                            <div class="text-slate-500 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-500">Cisco • 2020 - 2023</div>
+
+                                    <div class="group flex flex-col p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <span class="text-slate-400 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">▷</span> 
+                                            <span class="font-bold text-slate-900 dark:text-white">Earlier Roles</span>
                                         </div>
+                                        <div class="ml-5 text-slate-500 mb-1">Dole Food Company, Align Technology, HP Inc. • 2014 - 2020</div>
+                                        <div class="ml-5 text-slate-600 dark:text-slate-400">Enterprise support and service desk engineering.</div>
                                     </div>
-                                    <div class="group flex items-start gap-3 p-3 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default border border-transparent hover:border-slate-200 dark:hover:border-slate-800">
-                                        <span class="text-slate-400 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors mt-0.5">▷</span> 
-                                        <div>
-                                            <div class="text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Senior Service Desk Engineer</div>
-                                            <div class="text-slate-500 dark:text-slate-600 group-hover:text-slate-600 dark:group-hover:text-slate-500">Dole Food Company • 2017 - 2020</div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <p class="leading-7 mt-4 text-sm">
+                                    My full work history and certifications (CCNA, CCNP ENARSI) are on <a href="https://linkedin.com/in/pietrouni" target="_blank" class="text-blue-600 hover:underline dark:text-[#58a6ff]">LinkedIn</a>.
+                                </p>
+                            </div>
+
+                            <!-- Why DevOps? -->
+                            <div>
+                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                    Why DevOps?
+                                </h2>
+                                <p class="leading-7">
+                                    After years of troubleshooting other people's infrastructure, I want to be the one designing and building it. My networking background gives me an edge—I understand how distributed systems communicate, fail, and scale. DevOps lets me leverage that foundation while learning to automate, containerize, and orchestrate at scale.
+                                </p>
+                                <p class="leading-7 mt-4">
+                                    I'm not trying to become a pure software developer. I'm building toward <span class="font-bold text-slate-900 dark:text-white">Platform Engineering</span>—creating the tools and systems that let development teams ship faster without thinking about infrastructure.
+                                </p>
+                            </div>
+
+                            <!-- Beyond Work -->
+                            <div>
+                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                    Beyond Work
+                                </h2>
+                                <p class="leading-7">
+                                    When I'm not writing Terraform or debugging Kubernetes networking, I'm probably thinking about the intersection of infrastructure and emerging tech. I'm fascinated by how low-level systems work and how automation can eliminate operational toil.
+                                </p>
+                            </div>
+
+                            <!-- Let's Connect -->
+                            <div>
+                                 <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                    Let's Connect
+                                </h2>
+                                <p class="leading-7 mb-4">
+                                    If you're working on DevOps problems, building platform tooling, or just want to talk about infrastructure, reach out:
+                                </p>
+                                 <div class="flex gap-4">
+                                    <a href="mailto:pietrouni@gmail.com" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-colors text-sm font-bold text-slate-700 dark:text-slate-200">Email</a>
+                                    <a href="https://github.com/pietrocious" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-colors text-sm font-bold text-slate-700 dark:text-slate-200">GitHub</a>
+                                    <a href="https://linkedin.com/in/pietrouni" target="_blank" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-colors text-sm font-bold text-slate-700 dark:text-slate-200">LinkedIn</a>
                                 </div>
                             </div>
                         </div>
@@ -1094,6 +1140,68 @@
         let currentPath = '~';
         let guessGame = { active: false, target: 0, attempts: 0 };
 
+        const asciiAlpha = {
+            ' ': ["   ", "   ", "   ", "   ", "   "],
+            'A': [" ### ", "#   #", "#####", "#   #", "#   #"],
+            'B': ["#### ", "#   #", "#### ", "#   #", "#### "],
+            'C': [" ####", "#    ", "#    ", "#    ", " ####"],
+            'D': ["#### ", "#   #", "#   #", "#   #", "#### "],
+            'E': ["#####", "#    ", "#####", "#    ", "#####"],
+            'F': ["#####", "#    ", "#####", "#    ", "#    "],
+            'G': [" ####", "#    ", "#  ##", "#   #", " ####"],
+            'H': ["#   #", "#   #", "#####", "#   #", "#   #"],
+            'I': ["###", " # ", " # ", " # ", "###"],
+            'J': ["  ###", "    #", "    #", "#   #", " ####"],
+            'K': ["#   #", "#  # ", "###  ", "#  # ", "#   #"],
+            'L': ["#    ", "#    ", "#    ", "#    ", "#####"],
+            'M': ["#   #", "## ##", "# # #", "#   #", "#   #"],
+            'N': ["#   #", "##  #", "# # #", "#  ##", "#   #"],
+            'O': [" ### ", "#   #", "#   #", "#   #", " ### "],
+            'P': ["#### ", "#   #", "#### ", "#    ", "#    "],
+            'Q': [" ### ", "#   #", "# # #", "#### ", "    #"],
+            'R': ["#### ", "#   #", "#### ", "#  # ", "#   #"],
+            'S': [" ####", "#    ", " ### ", "    #", "#### "],
+            'T': ["#####", "  #  ", "  #  ", "  #  ", "  #  "],
+            'U': ["#   #", "#   #", "#   #", "#   #", " ### "],
+            'V': ["#   #", "#   #", "#   #", " # # ", "  #  "],
+            'W': ["#   #", "#   #", "# # #", "## ##", "#   #"],
+            'X': ["#   #", " # # ", "  #  ", " # # ", "#   #"],
+            'Y': ["#   #", " # # ", "  #  ", "  #  ", "  #  "],
+            'Z': ["#####", "   # ", "  #  ", " #   ", "#####"],
+            '0': [" ### ", "#  ##", "# # #", "##  #", " ### "],
+            '1': ["  #  ", " ##  ", "  #  ", "  #  ", " ### "],
+            '2': [" ### ", "#   #", "  ## ", " #   ", "#####"],
+            '3': ["#### ", "    #", "  ## ", "    #", "#### "],
+            '4': ["#  # ", "#  # ", "#####", "   # ", "   # "],
+            '5': ["#####", "#    ", "#### ", "    #", "#### "],
+            '6': [" ####", "#    ", "#### ", "#   #", " ####"],
+            '7': ["#####", "   # ", "  #  ", " #   ", "#    "],
+            '8': [" ### ", "#   #", " ### ", "#   #", " ### "],
+            '9': [" ####", "#   #", " ####", "    #", " ####"],
+            '?': [" ??? ", " ? ? ", "  ?  ", "  ?  ", "  ?  "],
+            '.': ["   ", "   ", "   ", "   ", " # "],
+            '!': [" # ", " # ", " # ", "   ", " # "],
+            '-': ["   ", "   ", "###", "   ", "   "],
+        };
+
+        function renderAscii(text) {
+            const chars = text.toUpperCase().split('');
+            const height = 5;
+            let lines = Array(height).fill('');
+
+            chars.forEach(char => {
+                const glyph = asciiAlpha[char] || asciiAlpha['?'];
+                // Ensure glyph is valid array, otherwise use fallback
+                const safeGlyph = Array.isArray(glyph) ? glyph : asciiAlpha['?'];
+
+                for (let i = 0; i < height; i++) {
+                    lines[i] += (safeGlyph[i] || "     ") + "  "; // Add spacing
+                }
+            });
+
+            return lines.join('\n');
+        }
+
         function handleTerminalCommand(e) {
             const input = e.target;
             const output = document.getElementById('term-output');
@@ -1332,7 +1440,10 @@
                         break;
 
                     case 'ascii':
-                        output.innerHTML += `
+                        const text = args.slice(1).join(' ');
+                        if (!text) {
+                            // Default fancy logo
+                            output.innerHTML += `
                         <div class="font-mono whitespace-pre text-blue-400 text-[10px] leading-3 my-2">
   _____           _    __       _ _       
  |  __ \\         | |  / _|     | (_)      
@@ -1341,6 +1452,11 @@
  | |  | (_) | |  | |_| || (_) || | | (_) |
  |_|   \\___/|_|   \\__|_| \\___/ |_|_|\\___/ 
                         </div>`;
+                        } else {
+                            // Custom text rendering
+                            const art = renderAscii(text);
+                            output.innerHTML += `<div class="font-mono whitespace-pre text-blue-400 text-[10px] leading-none my-2 overflow-x-auto tracking-tighter">${art}</div>`;
+                        }
                         break;
 
                     case 'fortune':
@@ -1391,7 +1507,7 @@
                             } else {
                                 const bars = Math.floor(progress / 5);
                                 const empty = 20 - bars;
-                                if (hackEl) hackEl.innerText = `[${'='.repeat(bars)}${' '.repeat(empty)}] ${progress}% Hacking Pentagon...`;
+                                if (hackEl) hackEl.innerText = `[${'='.repeat(bars)}${' '.repeat(empty)}] ${progress}% Hacking the European Defense Agency (EDA)...`;
                             }
                         }, 200);
                         break;
