@@ -273,7 +273,7 @@
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 <span
-                    class="text-xs text-center font-medium drop-shadow-md bg-white/60 dark:bg-black/30 px-2 py-1 rounded text-slate-900 dark:text-slate-200 shadow-sm">resume.html</span>
+                    class="text-xs text-center font-medium drop-shadow-md bg-white/60 dark:bg-black/30 px-2 py-1 rounded text-slate-900 dark:text-slate-200 shadow-sm">Resume</span>
             </div>
 
             <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors group"
@@ -309,7 +309,7 @@
                         d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
                 <span
-                    class="text-xs text-center font-medium drop-shadow-md bg-white/60 dark:bg-black/30 px-2 py-1 rounded text-slate-900 dark:text-slate-200 shadow-sm">Sys_Monitor</span>
+                    class="text-xs text-center font-medium drop-shadow-md bg-white/60 dark:bg-black/30 px-2 py-1 rounded text-slate-900 dark:text-slate-200 shadow-sm">AWS_Monitor</span>
             </div>
 
             <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors group"
@@ -418,7 +418,7 @@
                 <button
                     class="w-full text-left px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-700/80 flex items-center gap-3 transition-colors"
                     onclick="openWindow('monitor'); toggleStartMenu()">
-                    <span class="text-xl">📊</span> <span class="font-medium">System Monitor</span>
+                    <span class="text-xl">☁️</span> <span class="font-medium">AWS Monitor</span>
                 </button>
                 <button
                     class="w-full text-left px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-700/80 flex items-center gap-3 transition-colors"
@@ -576,7 +576,7 @@
                         <div class="space-y-8">
                             <!-- My Journey -->
                             <div>
-                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-3 font-serif flex items-center gap-2">
                                     My Journey
                                 </h2>
                                 <p class="leading-7">
@@ -589,7 +589,7 @@
 
                             <!-- What I'm Building -->
                             <div>
-                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-3 font-serif flex items-center gap-2">
                                     What I'm Building
                                 </h2>
                                 <p class="leading-7 mb-4">
@@ -607,7 +607,7 @@
 
                             <!-- Professional Background -->
                             <div>
-                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-4 font-headline">
+                                <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-4 font-serif">
                                     Professional Background
                                 </h2>
                                 <div class="space-y-4 font-mono text-sm">
@@ -645,7 +645,7 @@
 
                             <!-- Why DevOps? -->
                             <div>
-                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-3 font-serif flex items-center gap-2">
                                     Why DevOps?
                                 </h2>
                                 <p class="leading-7">
@@ -655,7 +655,7 @@
 
                             <!-- Beyond Work -->
                             <div>
-                                <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-3 font-serif flex items-center gap-2">
                                     Beyond Work
                                 </h2>
                                 <p class="leading-7">
@@ -665,7 +665,7 @@
 
                             <!-- Let's Connect -->
                             <div>
-                                 <h2 class="text-xl font-bold text-blue-600 dark:text-[#58a6ff] mb-3 font-headline flex items-center gap-2">
+                                 <h2 class="text-xl font-extrabold text-blue-600 dark:text-[#58a6ff] mb-3 font-serif flex items-center gap-2">
                                     Let's Connect
                                 </h2>
                                 <p class="leading-7 mb-4">
@@ -684,7 +684,7 @@
                 height: 600
             },
             resume: {
-                title: "resume.html",
+                title: "Resume",
                 icon: "📝",
                 content: `
                     <iframe src="resume.html" class="w-full h-full border-none bg-transparent"></iframe>
@@ -776,61 +776,133 @@
                 }
             },
             monitor: {
-                title: "Task Manager - System Performance",
-                icon: "📊",
+                title: "AWS Infrastructure - suprsymmetry.com",
+                icon: "☁️",
                 content: `
                     <div class="h-full bg-slate-50 dark:bg-slate-900 flex flex-col text-xs text-slate-600 dark:text-slate-300 font-mono overflow-hidden">
                          <!-- Tabs -->
-                         <div class="flex bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-                             <div class="px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white border-r border-slate-300 dark:border-slate-600 font-bold">Performance</div>
-                             <div class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 cursor-pointer border-r border-slate-200 dark:border-slate-600 transition-colors">Processes</div>
-                             <div class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 cursor-pointer transition-colors">Services</div>
+                         <div class="flex bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 select-none">
+                             <div id="mon-tab-infra" onclick="switchMonitorTab('infra')" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white border-r border-slate-300 dark:border-slate-600 font-bold cursor-pointer">Infrastructure</div>
+                             <div id="mon-tab-cloudfront" onclick="switchMonitorTab('cloudfront')" class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 cursor-pointer border-r border-slate-200 dark:border-slate-600 transition-colors">CloudFront</div>
+                             <div id="mon-tab-billing" onclick="switchMonitorTab('billing')" class="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 cursor-pointer transition-colors">Billing</div>
                          </div>
                          
-                         <div class="flex-1 flex p-4 gap-4 overflow-hidden">
+                         <!-- View: Infrastructure -->
+                         <div id="mon-view-infra" class="flex-1 flex p-4 gap-4 overflow-hidden">
                             <!-- Sidebar List -->
                             <div class="w-1/3 flex flex-col gap-2">
                                 <div class="p-3 bg-white dark:bg-slate-800 rounded border border-slate-300 dark:border-slate-600 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-sm active-monitor-tab">
-                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">CPU</div>
-                                    <div class="text-2xl font-light text-blue-600 dark:text-blue-400" id="cpu-val">14%</div>
-                                    <div class="text-[10px] text-slate-500">Ryzen 9 5950X</div>
+                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">24h Requests</div>
+                                    <div class="text-2xl font-light text-blue-600 dark:text-blue-400" id="req-val">2.4k</div>
+                                    <div class="text-[10px] text-slate-500">CloudFront Hits</div>
                                 </div>
                                 <div class="p-3 bg-white/50 dark:bg-slate-800/50 rounded border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">Memory</div>
-                                    <div class="text-2xl font-light text-purple-600 dark:text-purple-400" id="mem-val">8.2 GB</div>
-                                    <div class="text-[10px] text-slate-500">64 GB DDR5</div>
+                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">Data Transfer</div>
+                                    <div class="text-2xl font-light text-purple-600 dark:text-purple-400" id="net-val">145 MB</div>
+                                    <div class="text-[10px] text-slate-500">Outbound Traffic</div>
                                 </div>
                                 <div class="p-3 bg-white/50 dark:bg-slate-800/50 rounded border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">Ethernet</div>
-                                    <div class="text-2xl font-light text-green-600 dark:text-green-400">S: 0 R: 42</div>
-                                    <div class="text-[10px] text-slate-500">Kbps</div>
+                                    <div class="font-bold text-slate-700 dark:text-slate-200 mb-1">Edge Latency</div>
+                                    <div class="text-2xl font-light text-green-600 dark:text-green-400">24 ms</div>
+                                    <div class="text-[10px] text-slate-500">Global Average</div>
                                 </div>
                             </div>
                             
                             <!-- Main Graph Area -->
                             <div class="flex-1 bg-white dark:bg-black rounded border border-slate-300 dark:border-slate-700 relative p-2 flex flex-col shadow-inner">
                                 <div class="flex justify-between items-center mb-2 px-2">
-                                    <span class="font-bold text-slate-700 dark:text-slate-400">CPU Usage %</span>
-                                    <span class="text-[10px] text-slate-500 dark:text-slate-600">60 seconds window</span>
+                                    <span class="font-bold text-slate-700 dark:text-slate-400">CloudFront Requests / Second</span>
+                                    <span class="text-[10px] text-slate-500 dark:text-slate-600">Live Traffic</span>
                                 </div>
                                 <canvas id="sys-canvas" class="w-full flex-1"></canvas>
                                 
-                                <!-- Skill Processes -->
+                                <!-- Active Services -->
                                 <div class="h-1/3 mt-2 border-t border-slate-200 dark:border-slate-800 pt-2 overflow-y-auto">
                                     <table class="w-full text-left">
                                         <thead class="text-slate-500 sticky top-0 bg-white dark:bg-black">
-                                            <tr><th>Name</th><th>Status</th><th>PID</th><th>CPU</th></tr>
+                                            <tr><th>Service</th><th>Region</th><th>Status</th><th>Metric</th></tr>
                                         </thead>
                                         <tbody class="text-slate-700 dark:text-slate-300">
-                                            <tr><td>Terraform.exe</td><td class="text-green-600 dark:text-green-500">Running</td><td>4821</td><td>12%</td></tr>
-                                            <tr><td>Kubernetes-Agent</td><td class="text-green-600 dark:text-green-500">Running</td><td>1192</td><td>4%</td></tr>
-                                            <tr><td>Python_Script.py</td><td class="text-yellow-600 dark:text-yellow-500">Sleeping</td><td>8821</td><td>0%</td></tr>
-                                            <tr><td>AWS-CLI</td><td class="text-green-600 dark:text-green-500">Running</td><td>3321</td><td>2%</td></tr>
-                                            <tr><td>Docker_Daemon</td><td class="text-green-600 dark:text-green-500">Running</td><td>512</td><td>8%</td></tr>
+                                            <tr><td>CloudFront</td><td>Global</td><td class="text-green-600 dark:text-green-500">Deployed</td><td>Hit Ratio: 99%</td></tr>
+                                            <tr><td>S3 (Origin)</td><td>eu-west-1</td><td class="text-green-600 dark:text-green-500">Active</td><td>Size: 4.2MB</td></tr>
+                                            <tr><td>Route53</td><td>Global</td><td class="text-green-600 dark:text-green-500">Active</td><td>TTL: 60s</td></tr>
+                                            <tr><td>ACM (SSL)</td><td>us-east-1</td><td class="text-green-600 dark:text-green-500">Valid</td><td>RSA 2048</td></tr>
+                                            <tr><td>WAF</td><td>Global</td><td class="text-yellow-600 dark:text-yellow-500">Blocking</td><td>0 Threats</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+                         </div>
+                         
+                         <!-- View: CloudFront -->
+                         <div id="mon-view-cloudfront" class="hidden flex-1 p-6 overflow-y-auto">
+                             <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">CDN Distribution Status (E2E7X...)</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                 <div class="bg-white dark:bg-slate-800 p-4 rounded border border-slate-200 dark:border-slate-700">
+                                     <div class="text-slate-500 mb-2">Global Cache Hit Ratio</div>
+                                     <div class="text-3xl font-light text-green-500">99.4%</div>
+                                     <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded mt-2 overflow-hidden">
+                                         <div class="bg-green-500 h-full" style="width: 99.4%"></div>
+                                     </div>
+                                 </div>
+                                 <div class="bg-white dark:bg-slate-800 p-4 rounded border border-slate-200 dark:border-slate-700">
+                                     <div class="text-slate-500 mb-2">Total Bandwidth (30d)</div>
+                                     <div class="text-3xl font-light text-blue-500">4.2 GB</div>
+                                     <div class="text-xs text-slate-400 mt-2">Saved Origin Bandwidth: 4.18 GB</div>
+                                 </div>
+                             </div>
+                             
+                             <h4 class="font-bold text-slate-700 dark:text-slate-300 mb-3">Active Edge Locations</h4>
+                             <div class="bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                 <table class="w-full text-left">
+                                     <thead class="bg-slate-100 dark:bg-slate-900 text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                                         <tr><th class="p-3">Location</th><th class="p-3">Code</th><th class="p-3">Latency</th><th class="p-3">Status</th></tr>
+                                     </thead>
+                                     <tbody class="text-slate-700 dark:text-slate-300 divide-y divide-slate-100 dark:divide-slate-700">
+                                         <tr><td class="p-3">London, UK</td><td class="p-3 font-mono">LHR50</td><td class="p-3 text-green-500">12ms</td><td class="p-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Online</td></tr>
+                                         <tr><td class="p-3">Frankfurt, DE</td><td class="p-3 font-mono">FRA56</td><td class="p-3 text-green-500">18ms</td><td class="p-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Online</td></tr>
+                                         <tr><td class="p-3">N. Virginia, US</td><td class="p-3 font-mono">IAD89</td><td class="p-3 text-green-500">88ms</td><td class="p-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Online</td></tr>
+                                         <tr><td class="p-3">Singapore, SG</td><td class="p-3 font-mono">SIN2</td><td class="p-3 text-yellow-500">145ms</td><td class="p-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Online</td></tr>
+                                         <tr><td class="p-3">Tokyo, JP</td><td class="p-3 font-mono">NRT12</td><td class="p-3 text-yellow-500">152ms</td><td class="p-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Online</td></tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                         </div>
+                         
+                         <!-- View: Billing -->
+                         <div id="mon-view-billing" class="hidden flex-1 p-6 overflow-y-auto">
+                             <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">Cost Management (Month-to-Date)</h3>
+                             <div class="flex gap-6 mb-6">
+                                 <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded shadow-lg flex-1">
+                                     <div class="opacity-80 mb-1">Total Estimated Cost</div>
+                                     <div class="text-3xl font-bold">$2.15</div>
+                                     <div class="text-sm opacity-70 mt-2">Forecast: $2.50</div>
+                                 </div>
+                                  <div class="bg-white dark:bg-slate-800 p-4 rounded border border-slate-200 dark:border-slate-700 flex-1">
+                                     <div class="text-slate-500 mb-1">Top Service</div>
+                                     <div class="text-2xl font-bold text-slate-700 dark:text-white">CloudFront</div>
+                                     <div class="text-sm text-slate-400 mt-2">55% of total bill</div>
+                                 </div>
+                             </div>
+                             
+                             <h4 class="font-bold text-slate-700 dark:text-slate-300 mb-3">Service Breakdown</h4>
+                             <div class="bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                 <table class="w-full text-left">
+                                     <thead class="bg-slate-100 dark:bg-slate-900 text-slate-500 border-b border-slate-200 dark:border-slate-700">
+                                         <tr><th class="p-3">Service</th><th class="p-3">Region</th><th class="p-3">Usage</th><th class="p-3 text-right">Cost</th></tr>
+                                     </thead>
+                                     <tbody class="text-slate-700 dark:text-slate-300 divide-y divide-slate-100 dark:divide-slate-700">
+                                         <tr><td class="p-3">CloudFront</td><td class="p-3">Global</td><td class="p-3">4.2 GB Data Transfer</td><td class="p-3 text-right font-mono">$1.20</td></tr>
+                                         <tr><td class="p-3">Route 53</td><td class="p-3">Global</td><td class="p-3">1 Hosted Zone</td><td class="p-3 text-right font-mono">$0.50</td></tr>
+                                         <tr><td class="p-3">S3</td><td class="p-3">eu-west-1</td><td class="p-3">Storage & Requests</td><td class="p-3 text-right font-mono">$0.45</td></tr>
+                                         <tr><td class="p-3">WAF</td><td class="p-3">Global</td><td class="p-3">Free Tier</td><td class="p-3 text-right font-mono">$0.00</td></tr>
+                                         <tr class="bg-slate-50 dark:bg-slate-900/50 font-bold"><td class="p-3" colspan="3">Total</td><td class="p-3 text-right font-mono">$2.15</td></tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                             <div class="mt-4 text-xs text-slate-400">
+                                 * Costs are simulated estimates based on current usage patterns.
+                             </div>
                          </div>
                     </div>
                 `,
@@ -904,12 +976,26 @@
             win.style.top = `${top}px`;
             win.style.zIndex = ++zIndexCounter;
 
+            // Force theme if opening resume
+            let iframeThemeParam = '';
+            if (id === 'resume') {
+                const isDark = document.documentElement.classList.contains('dark');
+                iframeThemeParam = `?theme=${isDark ? 'dark' : 'light'}`;
+            }
+
+            // Replace placeholder in content if needed (not strictly necessary with current setup but good for robustness)
+            let content = winConfig.content;
+            if (id === 'resume' && iframeThemeParam) {
+                // Inject param into src
+                content = content.replace('resume.html', `resume.html${iframeThemeParam}`);
+            }
+
             win.innerHTML = `
                 <!-- Title Bar -->
                 <div class="h-9 bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-700 flex items-center justify-between px-3 cursor-move select-none transition-colors" onmousedown="startDrag(event, '${id}')" ontouchstart="startDrag(event, '${id}')">
                     <div class="flex items-center gap-3">
                         <span class="text-sm filter grayscale">${winConfig.icon}</span>
-                        <span class="text-xs font-mono text-slate-700 dark:text-slate-300 font-bold tracking-wide">${winConfig.title}</span>
+                        <span class="text-xs font-ui text-slate-700 dark:text-slate-300 font-bold tracking-wide">${winConfig.title}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <button class="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors" onclick="minimizeWindow('${id}')" title="Minimize"></button>
@@ -919,7 +1005,7 @@
                 </div>
                 <!-- Content -->
                 <div class="flex-1 overflow-auto bg-white/90 dark:bg-slate-800/90 relative flex flex-col window-content transition-colors" onmousedown="event.stopPropagation(); bringToFront('${id}')">
-                    ${winConfig.content}
+                    ${content}
                 </div>
                 <!-- Resize Handle -->
                 <div class="absolute bottom-0 right-0 w-6 h-6 cursor-nwse-resize z-50 flex items-end justify-end p-1 group rounded-br-lg" onmousedown="startResize(event, '${id}')" ontouchstart="startResize(event, '${id}')">
@@ -934,6 +1020,17 @@
 
             document.getElementById('windows-container').appendChild(win);
             activeWindows[id] = win;
+
+            // If it's the resume app, add an onload handler to the iframe to enforce theme sync
+            if (id === 'resume') {
+                const iframe = win.querySelector('iframe');
+                if (iframe) {
+                    iframe.onload = () => {
+                        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                        iframe.contentWindow.postMessage({ type: 'theme-change', theme: currentTheme }, '*');
+                    };
+                }
+            }
 
             // Add to taskbar
             const taskbarItem = document.createElement('button');
@@ -1552,6 +1649,26 @@
             }
         }
 
+        // --- Monitor Tab Logic ---
+        window.switchMonitorTab = function (tabName) {
+            // Update Tabs
+            ['infra', 'cloudfront', 'billing'].forEach(t => {
+                const tab = document.getElementById(`mon-tab-${t}`);
+                const view = document.getElementById(`mon-view-${t}`);
+
+                if (t === tabName) {
+                    tab.className = "px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white border-r border-slate-300 dark:border-slate-600 font-bold cursor-pointer";
+                    view.classList.remove('hidden');
+                    if (t === 'infra') view.classList.add('flex');
+                    else view.classList.add('block');
+                } else {
+                    tab.className = "px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 cursor-pointer border-r border-slate-200 dark:border-slate-600 transition-colors text-slate-500 dark:text-slate-400";
+                    view.classList.add('hidden');
+                    view.classList.remove('flex', 'block');
+                }
+            });
+        }
+
         // --- System Monitor Canvas ---
         function startMonitor() {
             const canvas = document.getElementById('sys-canvas');
@@ -1565,7 +1682,9 @@
             canvas.height = rect.height * dpr;
             ctx.scale(dpr, dpr);
 
-            const dataPoints = new Array(100).fill(0);
+            // Initialize with simulated past data
+            const dataPoints = new Array(100).fill(0).map(() => Math.floor(Math.random() * 40) + 10);
+            let transferTotal = 145.2; // Starting MB
 
             if (monitorInterval) clearInterval(monitorInterval);
 
@@ -1575,19 +1694,22 @@
                     return;
                 }
 
-                // Update simulated values
-                const cpu = Math.floor(Math.random() * 30) + 5;
-                const mem = (Math.random() * 0.5 + 8).toFixed(1);
+                // Update simulated values for CloudFront Traffic
+                // Randomize requests between 10 and 80 per second (simulated)
+                const requests = Math.floor(Math.random() * 70) + 10;
 
-                const cpuEl = document.getElementById('cpu-val');
-                const memEl = document.getElementById('mem-val');
+                // Update transfer cumulative
+                transferTotal += (Math.random() * 0.1);
 
-                if (cpuEl) cpuEl.innerText = cpu + "%";
-                if (memEl) memEl.innerText = mem + " GB";
+                const reqEl = document.getElementById('req-val');
+                const netEl = document.getElementById('net-val');
+
+                if (reqEl) reqEl.innerText = (2.4 + (Math.random() * 0.1)).toFixed(1) + "k";
+                if (netEl) netEl.innerText = transferTotal.toFixed(1) + " MB";
 
                 // Update Graph
                 dataPoints.shift();
-                dataPoints.push(cpu);
+                dataPoints.push(requests);
 
                 ctx.clearRect(0, 0, rect.width, rect.height);
 
@@ -1610,14 +1732,17 @@
                 ctx.stroke();
 
                 // Line
-                ctx.strokeStyle = '#22c55e';
+                ctx.strokeStyle = '#3b82f6'; // Blue for network traffic
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 const step = rect.width / dataPoints.length;
 
+                // Max value for scaling (e.g., 100 req/s)
+                const maxVal = 100;
+
                 dataPoints.forEach((val, i) => {
                     const x = i * step;
-                    const y = rect.height - (val / 100 * rect.height);
+                    const y = rect.height - ((val / maxVal) * rect.height);
                     if (i === 0) ctx.moveTo(x, y);
                     else ctx.lineTo(x, y);
                 });
@@ -1626,7 +1751,7 @@
                 // Fill
                 ctx.lineTo(rect.width, rect.height);
                 ctx.lineTo(0, rect.height);
-                ctx.fillStyle = 'rgba(34, 197, 94, 0.1)';
+                ctx.fillStyle = isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)';
                 ctx.fill();
 
             }, 1000);
