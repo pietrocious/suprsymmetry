@@ -73,7 +73,8 @@ infrastructure/static-site/
 ├── route53.tf       # dns zone and records
 ├── outputs.tf       # all outputs
 └── site/            # website files
-    └── index.html
+    ├── index.html
+    └── resume.html
 
 docs/                   # architecture documentation and reference configs
 archive/                # early experiments and learning iterations
@@ -127,7 +128,6 @@ auto-scaling policies automatically adjust capacity based on demand, ensuring ap
 - [ ] automated testing and deployment pipeline
 - [ ] infrastructure cost tracking and optimization dashboards
 - [ ] security hardening and compliance automation
-- [ ] revamped portfolio website
 
 ---
 
