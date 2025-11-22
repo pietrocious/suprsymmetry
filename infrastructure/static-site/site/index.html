@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8308NNRLFJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8308NNRLFJ');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pietro Uni Segura | Infrastructure Engineer</title>
+    <title>DevOps Engineer - Resume OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YOUR-ID');
+    </script>
     <style>
         :root {
             --bg-color: #0f172a;
             --accent: #22c55e;
             --window-bg: rgba(30, 41, 59, 0.95);
+            --taskbar-bg: rgba(15, 23, 42, 0.9);
+            --taskbar-border: #334155;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --icon-bg: rgba(51, 65, 85, 0.5);
+            --desktop-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        [data-theme="light"] {
+            --bg-color: #f1f5f9;
+            --accent: #0ea5e9;
+            --window-bg: rgba(255, 255, 255, 0.95);
+            --taskbar-bg: rgba(248, 250, 252, 0.9);
+            --taskbar-border: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --icon-bg: rgba(226, 232, 240, 0.7);
+            --desktop-bg: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
         }
         
         body {
@@ -27,13 +46,13 @@
             overflow: hidden;
             background-color: #000;
             user-select: none;
+            transition: background-color 0.3s ease;
         }
 
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* CRT Effect for Boot Screen */
         .crt::before {
             content: " ";
             display: block;
@@ -48,7 +67,6 @@
             pointer-events: none;
         }
 
-        /* Window Animations */
         .window {
             transition: transform 0.1s, opacity 0.2s;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -62,139 +80,74 @@
         .desktop-icon:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+        
+        #desktop {
+            background: var(--desktop-bg);
+        }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #1e293b; 
+            background: var(--bg-color); 
         }
         ::-webkit-scrollbar-thumb {
-            background: #475569; 
+            background: var(--accent);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b; 
+            background: #22c55e;
         }
 
-        /* Terminal Cursor Blink */
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        #boot-screen {
-            z-index: 9999;
+        * {
+            color: var(--text-primary);
         }
     </style>
 </head>
-<body class="h-screen w-screen text-slate-200 relative">
+<body class="w-full h-screen flex flex-col" style="background: black;">
 
     <!-- Boot Screen -->
-    <div id="boot-screen" class="absolute inset-0 bg-black font-mono text-green-500 p-8 crt flex flex-col justify-start">
-        <div id="boot-text" class="whitespace-pre-wrap"></div>
+    <div id="boot-screen" class="fixed inset-0 crt" style="background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        <div class="p-8 max-w-2xl">
+            <div id="boot-text" class="font-mono text-green-500 text-sm md:text-base leading-relaxed" style="white-space: pre-wrap;"></div>
+            <div id="boot-input" class="font-mono text-green-500 mt-4 text-sm md:text-base">
+                <span id="boot-prompt">></span>
+            </div>
+        </div>
     </div>
 
     <!-- Desktop Environment -->
-    <div id="desktop" class="absolute inset-0 bg-slate-900 hidden bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center">
-        <!-- Overlay for better text readability -->
-        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
-
-        <!-- Desktop Icons -->
-        <div class="absolute top-4 left-4 flex flex-col gap-4 z-0">
-            <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors" onclick="openWindow('about')">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span class="text-xs text-center font-medium drop-shadow-md">About_Me.md</span>
+    <div id="desktop" class="w-full h-full flex flex-col overflow-hidden">
+        <!-- Taskbar -->
+        <div id="taskbar" class="flex items-center justify-between px-4 py-2 border-b" style="background-color: var(--taskbar-bg); border-color: var(--taskbar-border); height: 50px;">
+            <div class="flex items-center gap-3">
+                <div class="text-sm font-mono" style="color: var(--accent);">nexus@devops ~ $</div>
             </div>
-
-            <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors" onclick="openWindow('projects')">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                </svg>
-                <span class="text-xs text-center font-medium drop-shadow-md">Projects</span>
+            
+            <!-- Taskbar Center (Active Windows) -->
+            <div id="taskbar-center" class="flex items-center gap-2 flex-1 justify-center px-4">
             </div>
-
-            <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors" onclick="openWindow('terminal')">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-300 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span class="text-xs text-center font-medium drop-shadow-md">Terminal</span>
-            </div>
-
-            <div class="desktop-icon w-24 h-24 flex flex-col items-center justify-center rounded cursor-pointer p-2 transition-colors" onclick="openWindow('contact')">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span class="text-xs text-center font-medium drop-shadow-md">Contact.sh</span>
+            
+            <!-- Taskbar Right (System Tray) -->
+            <div class="flex items-center gap-3">
+                <!-- Added theme toggle button -->
+                <button id="theme-toggle" class="theme-toggle flex items-center gap-2 px-2 py-1 rounded hover:bg-slate-700/50 transition-colors" onclick="toggleTheme()" title="Toggle Light/Dark Mode">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--accent);"></span>
+                    <span id="system-time" class="text-xs font-mono" style="color: var(--text-secondary);">00:00</span>
+                </div>
             </div>
         </div>
 
         <!-- Windows Container -->
-        <div id="windows-container" class="absolute inset-0 pointer-events-none overflow-hidden pb-12">
-            <!-- Windows will be injected here by JS -->
-        </div>
-
-        <!-- Taskbar -->
-        <div class="absolute bottom-0 left-0 right-0 h-12 bg-slate-900/90 backdrop-blur-md border-t border-slate-700 flex items-center px-4 justify-between z-50">
-            <div class="flex items-center gap-4">
-                <button class="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-white font-bold transition-colors" onclick="toggleStartMenu()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <span>Start</span>
-                </button>
-                <div id="taskbar-apps" class="flex gap-2">
-                    <!-- Active apps will appear here -->
-                </div>
-            </div>
-            <div class="flex items-center gap-4 text-sm font-mono text-slate-400">
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span>US-EAST-1</span>
-                </div>
-                <div id="clock">00:00</div>
-            </div>
-        </div>
-
-        <!-- Start Menu -->
-        <div id="start-menu" class="absolute bottom-14 left-2 w-64 bg-slate-800/95 backdrop-blur border border-slate-700 rounded-lg shadow-2xl hidden flex-col z-50">
-            <div class="p-4 border-b border-slate-700 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                    PU
-                </div>
-                <div>
-                    <div class="font-bold text-white">Pietro Uni</div>
-                    <div class="text-xs text-slate-400">Infrastructure Engineer</div>
-                </div>
-            </div>
-            <div class="py-2">
-                <button class="w-full text-left px-4 py-2 hover:bg-slate-700 text-slate-200 flex items-center gap-2" onclick="openWindow('about'); toggleStartMenu()">
-                    <span>📄</span> About Me
-                </button>
-                <button class="w-full text-left px-4 py-2 hover:bg-slate-700 text-slate-200 flex items-center gap-2" onclick="openWindow('projects'); toggleStartMenu()">
-                    <span>🚀</span> Projects
-                </button>
-                <button class="w-full text-left px-4 py-2 hover:bg-slate-700 text-slate-200 flex items-center gap-2" onclick="openWindow('terminal'); toggleStartMenu()">
-                    <span>💻</span> Terminal
-                </button>
-                <button class="w-full text-left px-4 py-2 hover:bg-slate-700 text-slate-200 flex items-center gap-2" onclick="openWindow('contact'); toggleStartMenu()">
-                    <span>📧</span> Contact
-                </button>
-            </div>
-            <div class="p-2 border-t border-slate-700">
-                <button class="w-full text-left px-4 py-2 hover:bg-red-900/50 text-red-400 rounded flex items-center gap-2" onclick="location.reload()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
-                    Reboot System
-                </button>
-            </div>
+        <div id="windows-container" class="flex-1 relative overflow-hidden">
         </div>
     </div>
 
@@ -225,46 +178,63 @@
         ];
 
         async function typeWriter(text, elementId) {
-            const element = document.getElementById(elementId);
-            for (let line of text) {
-                const p = document.createElement('div');
-                p.className = "mb-1";
-                element.appendChild(p);
-                
-                if (line.startsWith("[OK]")) {
-                    p.innerHTML = `<span class="text-green-400 font-bold">[OK]</span> ${line.substring(4)}`;
-                } else {
-                    for (let char of line) {
-                        p.textContent += char;
-                        await new Promise(r => setTimeout(r, 10)); // Fast typing
+            try {
+                const element = document.getElementById(elementId);
+                if (!element) return; // Guard clause
+
+                for (let line of text) {
+                    const p = document.createElement('div');
+                    p.className = "mb-1";
+                    element.appendChild(p);
+                    
+                    if (line.startsWith("[OK]")) {
+                        p.innerHTML = `<span class="text-green-400 font-bold">[OK]</span> ${line.substring(4)}`;
+                    } else {
+                        for (let char of line) {
+                            p.textContent += char;
+                            await new Promise(r => setTimeout(r, 10)); // Fast typing
+                        }
                     }
+                    await new Promise(r => setTimeout(r, 100)); // Pause between lines
+                    
+                    const bootScreen = document.getElementById('boot-screen');
+                    if (bootScreen) bootScreen.scrollTop = bootScreen.scrollHeight;
                 }
-                await new Promise(r => setTimeout(r, 100)); // Pause between lines
-                window.scrollTo(0, document.body.scrollHeight);
+                await new Promise(r => setTimeout(r, 800));
+                
+                const bootScreen = document.getElementById('boot-screen');
+                const desktop = document.getElementById('desktop');
+                
+                if (bootScreen) bootScreen.style.display = 'none';
+                if (desktop) desktop.classList.remove('hidden');
+                
+                // Auto open About window
+                setTimeout(() => openWindow('about'), 500);
+            } catch (e) {
+                console.error("Boot sequence error:", e);
+                // Failsafe: Force show desktop
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('desktop').classList.remove('hidden');
             }
-            await new Promise(r => setTimeout(r, 800));
-            document.getElementById('boot-screen').style.display = 'none';
-            document.getElementById('desktop').classList.remove('hidden');
-            
-            // Auto open About window
-            setTimeout(() => openWindow('about'), 500);
         }
 
-        if (config.autoBoot) {
-            typeWriter(bootText, 'boot-text');
-        } else {
-            document.getElementById('boot-screen').style.display = 'none';
-            document.getElementById('desktop').classList.remove('hidden');
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            if (config.autoBoot) {
+                typeWriter(bootText, 'boot-text');
+            } else {
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('desktop').classList.remove('hidden');
+            }
+        });
 
         // --- Window Management ---
         const windows = {
             about: {
-                title: "aboutme.md",
+                title: "About_Me.txt",
                 icon: "📄",
                 content: `
                     <div class="p-6 font-mono text-sm leading-relaxed">
-                        <h1 class="text-2xl font-bold text-blue-400 mb-4">hello there</h1>
+                        <h1 class="text-2xl font-bold text-blue-400 mb-4">Hello, World! 👋</h1>
                         <p class="mb-4">I'm Pietro Uni, an Infrastructure Engineer with 4+ years of production experience building and operating enterprise platforms.</p>
                         <p class="mb-4">Deep networking foundation (CCNA/CCNP certified, 3+ years Cisco TAC) enables rapid troubleshooting of distributed systems, design of scalable architectures, and management of high-availability environments.</p>
                         
@@ -297,48 +267,26 @@
                 title: "~/Projects",
                 icon: "🚀",
                 content: `
-                    <div class="p-4 bg-slate-900 h-full overflow-y-auto">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Project 1 -->
-                            <div class="bg-slate-800 p-4 rounded border border-slate-700 hover:border-blue-500 transition-colors cursor-pointer group" onclick="window.open('https://github.com/pietrocious/suprsymmetry', '_blank')">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-blue-400 group-hover:text-blue-300">suprsymmetry</h3>
-                                    <span class="text-xs bg-slate-700 px-2 py-1 rounded">Terraform</span>
-                                </div>
-                                <p class="text-sm text-slate-400 mb-3">Production-grade AWS infrastructure with multi-AZ VPC, ALB, ASG. Reusable Terraform modules with S3/DynamoDB state management.</p>
-                                <div class="flex gap-2 text-xs text-slate-500">
-                                    <span>🔗 github.com/pietrocious</span>
-                                </div>
+                    <div class="p-6 font-mono text-sm leading-relaxed">
+                        <h3 class="text-green-400 font-bold mb-4">🚀 Notable Projects</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-yellow-400">suprsymmetry.com</p>
+                                <p class="text-slate-400">Production AWS infrastructure with Terraform, managed through Infrastructure as Code. Multi-region deployment with automatic failover.</p>
                             </div>
-
-                            <!-- Project 2 -->
-                            <div class="bg-slate-800 p-4 rounded border border-slate-700 hover:border-blue-500 transition-colors cursor-pointer group" onclick="window.open('https://suprsymmetry.com', '_blank')">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-blue-400 group-hover:text-blue-300">Portfolio Website</h3>
-                                    <span class="text-xs bg-slate-700 px-2 py-1 rounded">AWS</span>
-                                </div>
-                                <p class="text-sm text-slate-400 mb-3">Static site on S3/CloudFront/Route53 with SSL/TLS. Infrastructure-as-code with Terraform, validated through destroy/rebuild testing.</p>
-                                <div class="flex gap-2 text-xs text-slate-500">
-                                    <span>🌐 suprsymmetry.com</span>
-                                </div>
+                            <div>
+                                <p class="text-yellow-400">Cloud Automation Platform</p>
+                                <p class="text-slate-400">Kubernetes-based deployment platform managing 50+ microservices in production with GitOps-driven workflow.</p>
                             </div>
-
-                            <!-- Project 3 -->
-                            <div class="bg-slate-800 p-4 rounded border border-slate-700 hover:border-blue-500 transition-colors cursor-pointer group">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-blue-400 group-hover:text-blue-300">Network Automation</h3>
-                                    <span class="text-xs bg-slate-700 px-2 py-1 rounded">Python</span>
-                                </div>
-                                <p class="text-sm text-slate-400 mb-3">Python scripts for Cisco DNA Center: automated config backups, compliance validation, bulk changes across 20+ devices. 95% error reduction.</p>
-                                <div class="flex gap-2 text-xs text-slate-500">
-                                    <span>🐍 Cisco DNA Center API</span>
-                                </div>
+                            <div>
+                                <p class="text-yellow-400">Network Automation Suite</p>
+                                <p class="text-slate-400">Python automation for Cisco DNA Center managing 200+ network devices with real-time monitoring and alerting.</p>
                             </div>
                         </div>
                     </div>
                 `,
-                width: 700,
-                height: 500
+                width: 600,
+                height: 450
             },
             terminal: {
                 title: "bash -- visitor@suprsymmetry",
@@ -346,12 +294,12 @@
                 content: `
                     <div class="h-full bg-black p-2 font-mono text-sm text-green-500 flex flex-col" onclick="document.getElementById('term-input').focus()">
                         <div id="term-output" class="flex-1 overflow-y-auto mb-2">
-                            <div>Welcome to the suprsymmetry Shell v1.0</div>
+                            <div>Welcome to suprsymmetry Shell v1.0</div>
                             <div>Type 'help' for available commands.</div>
                             <br>
                         </div>
                         <div class="flex items-center">
-                            <span class="mr-2 text-blue-400">visitor@suprsymmetry:~$</span>
+                            <span class="mr-2 text-blue-400">pietro@suprsymmetry:~$</span>
                             <input type="text" id="term-input" class="bg-transparent border-none outline-none text-green-500 flex-1" autocomplete="off">
                         </div>
                     </div>
@@ -391,6 +339,13 @@
                 `,
                 width: 500,
                 height: 400
+            },
+            resume: {
+                title: "Resume.pdf",
+                icon: "📋",
+                content: `<iframe src="./resume.html" style="width: 100%; height: 100%; border: none; background: white;"></iframe>`,
+                width: 900,
+                height: 700
             }
         };
 
@@ -452,7 +407,7 @@
                     bringToFront(id);
                 }
             };
-            document.getElementById('taskbar-apps').appendChild(taskbarItem);
+            document.getElementById('taskbar-center').appendChild(taskbarItem);
 
             if (winConfig.onOpen) winConfig.onOpen();
         }
@@ -488,7 +443,7 @@
                 win.dataset.prevTop = win.style.top;
                 
                 win.style.width = '100%';
-                win.style.height = 'calc(100% - 48px)'; // Minus taskbar
+                win.style.height = 'calc(100% - 50px)'; // Minus taskbar
                 win.style.left = '0';
                 win.style.top = '0';
                 win.dataset.maximized = 'true';
@@ -538,7 +493,7 @@
                 
                 // Bounds checking
                 const maxX = window.innerWidth - currentDragWindow.offsetWidth;
-                const maxY = window.innerHeight - currentDragWindow.offsetHeight - 48; // Taskbar
+                const maxY = window.innerHeight - currentDragWindow.offsetHeight - 50; // Taskbar
                 
                 currentDragWindow.style.left = `${Math.max(0, Math.min(x, maxX))}px`;
                 currentDragWindow.style.top = `${Math.max(0, Math.min(y, maxY))}px`;
@@ -552,10 +507,11 @@
 
         // --- Terminal Logic ---
         const fileSystem = {
-            'about.md': "Name: Pietro Uni Segura\nRole: Infrastructure Engineer\nLocation: Barcelona, Spain\nCertifications: CCNA 200-301, ENARSI 300-410, ITIL v4",
+            'about.txt': "Name: Pietro Uni Segura\nRole: Infrastructure Engineer\nLocation: Barcelona, Spain\nCertifications: CCNA 200-301, ENARSI 300-410, ITIL v4",
             'skills.md': "# Technical Skills\n\n## Cloud & Infrastructure\n- AWS (VPC, EC2, S3, CloudFront, Route53)\n- Terraform / Ansible\n- Kubernetes / Docker\n- Linux / Windows Server\n\n## Networking\n- OSPF / EIGRP / BGP / STP\n- Cisco Catalyst / DNA Center\n- Python scripting\n- Protocol analysis\n\n## Monitoring\n- Splunk / Nagios / Azure Monitor\n- CloudWatch\n- Log analysis and RCA",
-            'contact.md': "Email: pietrouni@gmail.com\nPhone: +34 682 635 992\nGitHub: github.com/pietrocious\nLinkedIn: linkedin.com/in/pietrouni\nWebsite: suprsymmetry.com",
-            'projects.md': "1. suprsymmetry - Production AWS infrastructure with Terraform\n2. Portfolio Website - Static site on S3/CloudFront/Route53\n3. Network Automation - Python scripts for Cisco DNA Center"
+            'contact.txt': "Email: pietrouni@gmail.com\nPhone: +34 682 635 992\nGitHub: github.com/pietrocious\nLinkedIn: linkedin.com/in/pietrouni\nWebsite: suprsymmetry.com",
+            'projects.txt': "1. suprsymmetry - Production AWS infrastructure with Terraform\n2. Portfolio Website - Static site on S3/CloudFront/Route53\n3. Network Automation - Python scripts for Cisco DNA Center",
+            'resume.pdf': "Resume.pdf"
         };
 
         function handleTerminalCommand(e) {
@@ -591,7 +547,7 @@
                         output.innerHTML = '';
                         break;
                     case 'whoami':
-                        output.innerHTML += `<div>root (just kidding, it's you)</div>`;
+                        output.innerHTML += `<div>root (just kidding, that's me)</div>`;
                         break;
                     case 'date':
                         output.innerHTML += `<div>${new Date().toString()}</div>`;
@@ -615,27 +571,55 @@
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+            document.getElementById('system-time').textContent = `${hours}:${minutes}`;
         }
         setInterval(updateClock, 1000);
         updateClock();
 
-        // --- Start Menu ---
-        function toggleStartMenu() {
-            const menu = document.getElementById('start-menu');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
+        // --- Theme Management ---
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        function initTheme() {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon();
+        }
+        
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateThemeIcon();
+        }
+        
+        function updateThemeIcon() {
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            if (currentTheme === 'light') {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
         }
 
-        // Close start menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const menu = document.getElementById('start-menu');
-            const startBtn = document.querySelector('button[onclick="toggleStartMenu()"]');
-            if (!menu.contains(e.target) && !startBtn.contains(e.target) && !menu.classList.contains('hidden')) {
-                toggleStartMenu();
-            }
+        // Boot sequence
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            
+            setTimeout(() => {
+                bootSequence();
+            }, 500);
         });
 
+        function bootSequence() {
+            if (config.autoBoot) {
+                typeWriter(bootText, 'boot-text');
+            } else {
+                document.getElementById('boot-screen').style.display = 'none';
+                document.getElementById('desktop').classList.remove('hidden');
+            }
+        }
     </script>
 </body>
 </html>
