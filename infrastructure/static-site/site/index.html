@@ -152,13 +152,15 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
-        .window.dragging {
+        .window.dragging,
+        .window.resizing {
             transition: none;
             opacity: 0.9;
         }
 
-        /* Prevent iframe from capturing mouse events while dragging window */
-        .window.dragging iframe {
+        /* Prevent iframe from capturing mouse events while dragging or resizing */
+        .window.dragging iframe,
+        .window.resizing iframe {
             pointer-events: none;
         }
 
@@ -243,7 +245,6 @@
     </div>
 
     <!-- Desktop Environment -->
-    <!-- Replaced hardcoded bg-[url] with dynamic style handling for wallpapers -->
     <div id="desktop" class="absolute inset-0 hidden bg-cover bg-center transition-all duration-700 ease-in-out">
         <!-- Overlay for better text readability -->
         <div class="absolute inset-0 bg-white/20 dark:bg-black/40 pointer-events-none transition-colors duration-500">
@@ -858,6 +859,12 @@
                 <div class="flex-1 overflow-auto bg-white/90 dark:bg-slate-800/90 relative flex flex-col window-content transition-colors" onmousedown="event.stopPropagation(); bringToFront('${id}')">
                     ${winConfig.content}
                 </div>
+                <!-- Resize Handle -->
+                <div class="absolute bottom-0 right-0 w-6 h-6 cursor-nwse-resize z-50 flex items-end justify-end p-1 group rounded-br-lg" onmousedown="startResize(event, '${id}')" ontouchstart="startResize(event, '${id}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400/50 group-hover:text-blue-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 5L5 19M19 12L12 19" />
+                    </svg>
+                </div>
             `;
 
             // Focus on click
@@ -993,12 +1000,40 @@
             bringToFront(id);
         }
 
+        // --- Resize Logic ---
+        let isResizing = false;
+        let currentResizeWindow = null;
+        let resizeStartX = 0;
+        let resizeStartY = 0;
+        let initialResizeWidth = 0;
+        let initialResizeHeight = 0;
+
+        function startResize(e, id) {
+            e.stopPropagation();
+            const win = document.getElementById(`window-${id}`);
+            if (win.dataset.maximized === 'true') return;
+
+            isResizing = true;
+            currentResizeWindow = win;
+            win.classList.add('resizing');
+
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            resizeStartX = clientX;
+            resizeStartY = clientY;
+            initialResizeWidth = win.offsetWidth;
+            initialResizeHeight = win.offsetHeight;
+
+            bringToFront(id);
+        }
+
         const handleMove = (e) => {
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
             if (isDragging && currentDragWindow) {
                 e.preventDefault();
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
                 const x = clientX - dragOffsetX;
                 const y = clientY - dragOffsetY;
 
@@ -1009,13 +1044,26 @@
                 // Allow slightly off screen
                 currentDragWindow.style.left = `${Math.max(-50, Math.min(x, maxX + 50))}px`;
                 currentDragWindow.style.top = `${Math.max(0, Math.min(y, maxY))}px`;
+            } else if (isResizing && currentResizeWindow) {
+                e.preventDefault();
+                const width = initialResizeWidth + (clientX - resizeStartX);
+                const height = initialResizeHeight + (clientY - resizeStartY);
+
+                // Min dimensions
+                currentResizeWindow.style.width = `${Math.max(300, width)}px`;
+                currentResizeWindow.style.height = `${Math.max(200, height)}px`;
             }
         };
 
         const handleEnd = () => {
             if (currentDragWindow) currentDragWindow.classList.remove('dragging');
+            if (currentResizeWindow) currentResizeWindow.classList.remove('resizing');
+
             isDragging = false;
             currentDragWindow = null;
+
+            isResizing = false;
+            currentResizeWindow = null;
         };
 
         document.addEventListener('mousemove', handleMove);
