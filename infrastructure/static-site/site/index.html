@@ -500,6 +500,15 @@
                 frame.contentWindow.postMessage({ type: 'theme-change', theme: newTheme }, '*');
             });
         }
+
+        // Listen for request-theme from iframes (initial handshake)
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'request-theme') {
+                const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                event.source.postMessage({ type: 'theme-change', theme: currentTheme }, '*');
+            }
+        });
+
         initTheme();
 
         // --- Boot Sequence ---
@@ -678,7 +687,7 @@
                 title: "resume.html",
                 icon: "📝",
                 content: `
-                    <iframe src="resume.html" class="w-full h-full border-none bg-transparent" onload="this.contentWindow.postMessage({ type: 'theme-change', theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light' }, '*')"></iframe>
+                    <iframe src="resume.html" class="w-full h-full border-none bg-transparent"></iframe>
                 `,
                 width: 900,
                 height: 800
@@ -728,7 +737,7 @@
                                     <h3 class="font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 text-lg">Network Automation</h3>
                                     <span class="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-200 px-2 py-1 rounded border border-green-200 dark:border-green-800 font-mono">Python</span>
                                 </div>
-                                <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 relative z-10">Python scripts for Cisco DNA Center: automated config backups, compliance validation, and bulk changes across 20+ devices. 95% error reduction.</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 relative z-10">Python scripts for Cisco DNA Center: automated config backups, compliance validation, and bulk configuration changes across 20+ devices. 95% error reduction.</p>
                                 <div class="flex gap-2 text-xs text-slate-500 font-mono relative z-10">
                                     <span class="flex items-center gap-1 hover:text-slate-800 dark:hover:text-white transition-colors">🐍 Cisco DNA Center API</span>
                                 </div>

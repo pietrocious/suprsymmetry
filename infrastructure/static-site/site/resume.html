@@ -566,16 +566,12 @@
             }
         });
 
-        // Initial check using localStorage (if on same domain) or fallback to system pref
+        // Initial handshake: Request theme from parent immediately
         try {
-            if (localStorage.getItem('theme') === 'dark') {
-                setTheme('dark');
-            } else if (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme('dark');
-            }
+            window.parent.postMessage({ type: 'request-theme' }, '*');
         } catch (e) {
-            // Fallback if localStorage access is blocked (e.g. null origin in some setups)
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Fallback for standalone viewing
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 setTheme('dark');
             }
         }
