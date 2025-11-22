@@ -476,19 +476,29 @@
 
         function toggleTheme() {
             const desktop = document.getElementById('desktop');
+            let newTheme = '';
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
                 localStorage.theme = 'light';
                 desktop.style.backgroundImage = wallpapers.light;
+                newTheme = 'light';
             } else {
                 document.documentElement.classList.add('dark');
                 localStorage.theme = 'dark';
                 desktop.style.backgroundImage = wallpapers.dark;
+                newTheme = 'dark';
             }
+
             // Force redraw monitor if open to update colors
             if (activeWindows['monitor']) {
                 startMonitor();
             }
+
+            // Broadcast theme change to iframes
+            const frames = document.querySelectorAll('iframe');
+            frames.forEach(frame => {
+                frame.contentWindow.postMessage({ type: 'theme-change', theme: newTheme }, '*');
+            });
         }
         initTheme();
 
@@ -630,10 +640,7 @@
                                     Why DevOps?
                                 </h2>
                                 <p class="leading-7">
-                                    After years of troubleshooting other people's infrastructure, I want to be the one designing and building it. My networking background gives me an edge—I understand how distributed systems communicate, fail, and scale. DevOps lets me leverage that foundation while learning to automate, containerize, and orchestrate at scale.
-                                </p>
-                                <p class="leading-7 mt-4">
-                                    I'm not trying to become a pure software developer. I'm building toward <span class="font-bold text-slate-900 dark:text-white">Platform Engineering</span>—creating the tools and systems that let development teams ship faster without thinking about infrastructure.
+                                    After years of troubleshooting other people's infrastructure, I want to be the one designing and building it. My networking background gives me an edge, I understand how distributed systems communicate, fail, and scale. DevOps lets me leverage that foundation while learning to automate, containerize, and orchestrate at scale.
                                 </p>
                             </div>
 
@@ -671,7 +678,7 @@
                 title: "resume.html",
                 icon: "📝",
                 content: `
-                    <iframe src="resume.html" class="w-full h-full border-none bg-white"></iframe>
+                    <iframe src="resume.html" class="w-full h-full border-none bg-transparent" onload="this.contentWindow.postMessage({ type: 'theme-change', theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light' }, '*')"></iframe>
                 `,
                 width: 900,
                 height: 800
@@ -1283,9 +1290,6 @@
                                 <span class="text-blue-400">ls</span><span>List directory contents</span>
                                 <span class="text-blue-400">cd [dir]</span><span>Open directory</span>
                                 <span class="text-blue-400">cat [file]</span><span>Display file contents</span>
-                            </div>
-                            <div class="font-bold mt-3 mb-1 border-b border-slate-600 pb-1">Application Commands:</div>
-                            <div class="grid grid-cols-[100px_1fr] gap-1">
                                 <span class="text-green-400">open [app]</span><span>Open an application</span>
                             </div>
                             <div class="text-xs text-slate-500 mt-1 ml-[100px]">Apps: readme, resume, projects, monitor, contact</div>
