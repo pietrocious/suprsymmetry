@@ -514,15 +514,9 @@
         // --- Boot Sequence ---
         const bootText = [
             "Initializing Kernel v6.17.8...",
-            "Loading modules: CPU, RAM, DISK, NET...",
-            "[OK] CPU: 16 Cores Detected (Ryzen 9 5950X)",
-            "[OK] RAM: 64GB DDR5 Verified",
             "Mounting file systems...",
-            "/dev/sda1 mounted on /",
             "Loading user profile: Guest",
-            "Starting UI Subsystem...",
             "Establishing secure connection to S3...",
-            "Loading assets...",
             "Done.",
             "Welcome to suprsymmetry.com"
         ];
@@ -571,7 +565,7 @@
                 icon: "📄",
                 content: `
                     <div class="h-full bg-white dark:bg-[#0d1117] text-slate-700 dark:text-[#c9d1d9] p-6 md:p-8 font-sans text-base overflow-y-auto window-content leading-relaxed selection:bg-blue-500/30 transition-colors">
-                        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 font-serif tracking-tight">Hi, I'm Pietro <span class="animate-pulse inline-block">👋</span></h1>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-8 font-serif tracking-tight">hello<span class="animate-pulse inline-block">👋</span></h1>
                         
                         <div class="space-y-8">
                             <!-- My Journey -->
@@ -580,7 +574,7 @@
                                     My Journey
                                 </h2>
                                 <p class="leading-7">
-                                    I'm an <span class="font-bold text-slate-900 dark:text-white">Infrastructure Engineer</span> based in Barcelona with a somewhat winding path through tech. What started as HP printer support in 2014 eventually led me through enterprise help desk work, specialized medical device support, and into the world of enterprise networking. I spent over three years at <span class="font-bold text-slate-900 dark:text-white">Cisco TAC</span> solving complex routing, switching, and SDN problems for Fortune 500 companies—the kind of work that teaches you how distributed systems actually break in production.
+                                    I'm an <span class="font-bold text-slate-900 dark:text-white">Infrastructure Engineer</span> based in Barcelona with a somewhat winding path through tech. What started as HP printer support in 2014 eventually led me through enterprise help desk work, specialized medical device support, and into the world of enterprise networking. I spent over three years at <span class="font-bold text-slate-900 dark:text-white">Cisco TAC</span> solving complex routing, switching, and SDN problems for Fortune 500 companies,  the kind of work that teaches you how distributed systems actually break in production.
                                 </p>
                                 <p class="leading-7 mt-4">
                                     These days, I'm at <span class="font-bold text-slate-900 dark:text-white">Giesecke+Devrient</span> monitoring production payment infrastructure while actively transitioning toward DevOps and Platform Engineering. I've realized I'd rather build and automate systems than just keep them running.
@@ -639,7 +633,7 @@
                                     </div>
                                 </div>
                                 <p class="leading-7 mt-4 text-sm">
-                                    My full work history and certifications (CCNA, CCNP ENARSI) are on <a href="https://linkedin.com/in/pietrouni" target="_blank" class="text-blue-600 hover:underline dark:text-[#58a6ff]">LinkedIn</a>.
+                                    My full work history and certifications (ITIL4, CCNA, ENARSI, CCNP) are on <a href="https://linkedin.com/in/pietrouni" target="_blank" class="text-blue-600 hover:underline dark:text-[#58a6ff]">LinkedIn</a>.
                                 </p>
                             </div>
 
@@ -659,7 +653,7 @@
                                     Beyond Work
                                 </h2>
                                 <p class="leading-7">
-                                    When I'm not writing Terraform or debugging Kubernetes networking, I'm probably thinking about the intersection of infrastructure and emerging tech. I'm fascinated by how low-level systems work and how automation can eliminate operational toil.
+                                    Outside of infrastructure work, I listen to music across pretty much every genre, play games when I have time, and enjoy understanding how complex systems get built. I'm fascinated by the engineering behind games and tech products—the coordination, the tradeoffs, the architecture decisions that make something actually work at such a scale, and how much we're all standing on the shoulders of giants.
                                 </p>
                             </div>
 
@@ -754,7 +748,7 @@
                 content: `
                     <div class="h-full bg-[#1e1e1e] p-3 font-mono text-sm text-green-500 flex flex-col" onclick="document.getElementById('term-input').focus()">
                         <div id="term-output" class="flex-1 overflow-y-auto mb-2 window-content break-all whitespace-pre-wrap">
-                            <div class="mb-2">PortfolioOS Terminal [Version 1.0.0-beta]</div>
+                            <div class="mb-2">suprsymmetry Terminal [Version 1.0.0-beta]</div>
                             <div class="mb-4 text-slate-500">Type 'help' for available commands.</div>
                         </div>
                         <div class="flex items-center bg-white/5 dark:bg-slate-900/50 p-1 rounded">
@@ -1422,7 +1416,7 @@
                         break;
 
                     case 'about':
-                        output.innerHTML += `<div class="text-slate-200 my-2">PortfolioOS Terminal [Version 1.0.0-beta]<br>(c) 2024 Pietro Uni. All rights reserved.</div>`;
+                        output.innerHTML += `<div class="text-slate-200 my-2">suprsymmetry Terminal [Version 1.0.0-beta]<br>(c) 2024 Pietro Uni. All rights reserved.</div>`;
                         break;
 
                     case 'clear':
@@ -1524,7 +1518,7 @@
                             <div>
                                 <div class="text-green-400 font-bold">guest@suprsymmetry</div>
                                 <div>-----------------</div>
-                                <div><span class="text-yellow-400 font-bold">OS</span>: PortfolioOS v1.0</div>
+                                <div><span class="text-yellow-400 font-bold">OS</span>: suprsymmetry v1.0</div>
                                 <div><span class="text-yellow-400 font-bold">Kernel</span>: 6.17.8</div>
                                 <div><span class="text-yellow-400 font-bold">Uptime</span>: ${uptime}</div>
                                 <div><span class="text-yellow-400 font-bold">Shell</span>: Bash (simulated)</div>
@@ -1555,12 +1549,24 @@
                             // Default fancy logo
                             output.innerHTML += `
                         <div class="font-mono whitespace-pre text-blue-400 text-[10px] leading-3 my-2">
-  _____           _    __       _ _       
- |  __ \\         | |  / _|     | (_)      
- | |__) |__  _ __| |_| |_ ___  | |_  ___  
- |  ___/ _ \\| '__| __|  _/ _ \\ | | |/ _ \\ 
- | |  | (_) | |  | |_| || (_) || | | (_) |
- |_|   \\___/|_|   \\__|_| \\___/ |_|_|\\___/ 
+....................................................................................................
+....................::..........................:--:................................................
+....................@@*.......................:@@@@@#....:*@@%:.....................................
+...................-@@=......................:@@%:-@@-..-@@%*@@+....................................
+...................-@@-......................-@@=..@@*..%@*..*@%....................................
+...................=@@:......................@@%...@@*.+@@:..+@%....................................
+...................*@@:.....................:@@*..-@@-.#@@...#@%.................*@@=...............
+...................#@@................:.....:@@*..*@@:.@@*..:@@#..............+@@@@=................
+...................#@*...:#@-:.....=@@@@@%..:@@*.:@@%.-@@-..=@@+......:+@@@@@@@@#...................
+...................@@+.+@@@@@@=...-@@#.+@@:.:@@%.#@@-.-@@-..%@%.....:%@@@@@@@-......................
+..................:@@=@@@-..@@%...%@%..+@@:..#@@*@@=..-@@*.*@@-....:@@@-...+@@=.....................
+..................=@@@@%:...#@@..:@@#..%@%...-@@@@-....%@@-@@-....:@@@=.....@@@.....................
+..................+@@@*.....@@@...%@@:@@%....:@@@:.....=@@@@-....:@@@@:.....#@@.....................
+..................#@@@:.....@@%...-@@@@*...:#@@@@+......%@@=....+@@@@@=....-@@#.....................
+.................:%@@:......+@@+:+%@@@@%**%@@@-=@@%=.:*@@@@@#*#@@@=.%@@#-=#@@@:.:+=.................
+.................:@@%........#@@@@@*.:#@@@@%:....*@@@@@@-.:%@@@@+....:@@@@@@:...=@@=................
+..................+#:...............................................................................
+....................................................................................................
                         </div>`;
                         } else {
                             // Custom text rendering
@@ -1575,7 +1581,7 @@
                             "\"There is no cloud, it's just someone else's computer.\"",
                             "\"Reliability is the most important feature.\"",
                             "\"First, solve the problem. Then, write the code.\"",
-                            "\"Infrastructure as Code is the way.\""
+                            "\".\""
                         ];
                         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
                         output.innerHTML += `<div class="text-purple-400 italic my-2">${randomQuote}</div>`;
