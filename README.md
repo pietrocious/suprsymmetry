@@ -65,19 +65,16 @@ designed to demonstrate practical devops skills applicable to enterprise environ
 
 ### structure
 ```
-infrastructure/static-site/
+infrastructure/
 ├── main.tf          # terraform/provider config only
 ├── acm.tf           # certificate
 ├── s3.tf            # bucket, policy, objects
 ├── cloudfront.tf    # cdn distribution and oac
 ├── route53.tf       # dns zone and records
 ├── outputs.tf       # all outputs
-└── site/            # website files
-    ├── index.html
-    └── resume.html
 
 docs/                   # architecture documentation and reference configs
-archive/                # early experiments and learning iterations
+archive/                # early experiments and iterations
 .github/workflows/      # ci/cd pipeline for terraform validation
 ```
 
