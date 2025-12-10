@@ -1,18 +1,18 @@
-# suprsymmetry.com
+# pietrouni.com
 
-[![CI/CD](https://github.com/pietrocious/suprsymmetry/actions/workflows/production.yml/badge.svg)](https://github.com/pietrocious/suprsymmetry/actions/workflows/production.yml)
-[![](https://img.shields.io/website?down_color=red&down_message=offline&label=suprsymmetry.com&up_color=green&up_message=online&url=https%3A%2F%2Fsuprsymmetry.com)](https://suprsymmetry.com)
+[![CI/CD](https://github.com/pietrocious/terraform-aws-pietrouni/actions/workflows/production.yml/badge.svg)](https://github.com/pietrocious/terraform-aws-pietrouni/actions/workflows/production.yml)
+[![](https://img.shields.io/website?down_color=red&down_message=offline&label=pietrouni.com&up_color=green&up_message=online&url=https%3A%2F%2Fpietrouni.com)](https://pietrouni.com)
 
 
 # AWS infrastructure for a personal portfolio site
 
-[suprsymmetry.com](https://suprsymmetry.com)
+[pietrouni.com](https://pietrouni.com)
 
 this is a production-grade cloud infrastructure designed to test devops engineering capabilities through infrastructure-as-code, automated monitoring, and modern deployment practices.
 
 in physics, supersymmetry describes universal balance through particle partnerships. in infrastructure, we build that balance through architectural patterns.
 
-like its namesake, this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. 
+this project showcases symmetry and resilience across distributed systems: multi-az redundancy, auto-scaling compute, and globally distributed content delivery. 
 
 built using [terraform](https://github.com/hashicorp/terraform) and [AWS](https://github.com/aws)
 
