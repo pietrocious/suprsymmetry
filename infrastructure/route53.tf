@@ -1,35 +1,35 @@
-# route53 hosted zone
-resource "aws_route53_zone" "main" {
-  name = "suprsymmetry.com"
+# route53 hosted zone for pietrouni.com
+resource "aws_route53_zone" "pietrouni" {
+  name = "pietrouni.com"
 
   tags = {
-    Name        = "suprsymmetry-zone"
+    Name        = "pietrouni-zone"
     Environment = "production"
   }
 }
 
 # root domain points to cloudfront
-resource "aws_route53_record" "root" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "suprsymmetry.com"
+resource "aws_route53_record" "pietrouni_root" {
+  zone_id = aws_route53_zone.pietrouni.zone_id
+  name    = "pietrouni.com"
   type    = "A"
 
   alias {
-    name                   = aws_cloudfront_distribution.website.domain_name
-    zone_id                = aws_cloudfront_distribution.website.hosted_zone_id
+    name                   = aws_cloudfront_distribution.pietrouni.domain_name
+    zone_id                = aws_cloudfront_distribution.pietrouni.hosted_zone_id
     evaluate_target_health = false
   }
 }
 
 # www subdomain points to cloudfront
-resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = "www.suprsymmetry.com"
+resource "aws_route53_record" "pietrouni_www" {
+  zone_id = aws_route53_zone.pietrouni.zone_id
+  name    = "www.pietrouni.com"
   type    = "A"
 
   alias {
-    name                   = aws_cloudfront_distribution.website.domain_name
-    zone_id                = aws_cloudfront_distribution.website.hosted_zone_id
+    name                   = aws_cloudfront_distribution.pietrouni.domain_name
+    zone_id                = aws_cloudfront_distribution.pietrouni.hosted_zone_id
     evaluate_target_health = false
   }
 }
